@@ -1,0 +1,36 @@
+@import "./mixins.scss";
+.project_card--container {
+  max-width: var(--mobile-inner-max-width);
+  margin: 0 auto;
+  @include tablet {
+    max-width: var(--inner-max-width);
+  }
+}
+.project_card--text_top {
+  color: var(--text-black);
+  h2 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    @include tablet {
+      font-size: 1.95rem;
+    }
+  }
+  p {
+    font-weight: 400;
+  }
+}
+
+.project_card--text_image_bottom {
+  display: flex;
+  margin-top: 10px;
+  color: var(--text-black);
+  p {
+    flex: 1;
+    margin-right: 10px;
+    font-weight: 300;
+  }
+  div {
+    flex: 0 1 40%;
+    margin-left: 10px;
+  }
+}

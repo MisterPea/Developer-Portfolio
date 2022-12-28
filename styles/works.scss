@@ -1,0 +1,39 @@
+@import "./mixins.scss";
+
+.works--container {
+  max-width: var(--mobile-max-width);
+  margin: 0 auto 40px;
+  @include tablet {
+    max-width: var(--max-width);
+    margin: 0 auto 40px;
+  }
+}
+
+.works--header {
+  width: var(--mobile-inner-max-width);
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--accent-blue);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  @include tablet {
+    font-weight: 300;
+    font-size: 1.25rem;
+  }
+}
+
+.works--dotted_line {
+  @include dotted-line;
+}
+
+.works--card-item {
+  @include dotted-line;
+  padding-bottom: 25px;
+  margin-bottom: 20px;
+}
+
+.works--cards-container {
+  margin: 20px auto 0;
+}

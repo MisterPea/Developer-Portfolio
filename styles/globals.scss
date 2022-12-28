@@ -1,0 +1,77 @@
+@import "./mixins.scss";
+@import "./project.scss";
+@import "./header.scss";
+@import "./works.scss";
+@import "./about.scss";
+
+:root {
+  --background-solid: #ebe6e1;
+  --max-width: 800px;
+  --mobile-max-width: 95%;
+  --mobile-inner-max-width: 90%;
+  --inner-max-width: 650px;
+  --lightYellow: hsl(74, 100%, 95%);
+  --complementaryYellow: #e5f3ff;
+  --text-black: #404040;
+  --accent-blue: #0392e1;
+  --off-black: #323232;
+  --mid-black: hsl(0, 0%, 50%);
+  --icon-height: 88px;
+  --card-background: #ffffff55;
+  --lines: url("data:image/svg+xml,%3Csvg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 200'%3E%3Cpath d='M10.5,200h-1a245,245,0,0,0,4.9-49.7c.1-20.4-2.5-35.4-5-50s-5-29.6-5-50A254,254,0,0,1,9.5,0h1A252.3,252.3,0,0,0,5.4,50.3c0,20.4,2.6,35.4,5,49.9s5.1,29.6,5,50.1A245,245,0,0,1,10.5,200Z' transform='translate(-4.4 0)' style='fill: %23FFFFFF80'/%3E%3C/svg%3E%0A");
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--background-solid);
+  z-index: -1;
+  min-height: 101vh;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+    background: var(--lines);
+    background-size: 8px;
+    z-index: -1;
+  }
+}
+// html {
+//   background-color: var(--background-solid);
+
+// }
+
+// body {
+
+//   min-height: 100%;
+//   // height: 100vh;
+//   position: relative;
+// }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: aquamarine;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
