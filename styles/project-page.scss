@@ -1,0 +1,124 @@
+@import "./mixins.scss";
+
+.project--container {
+  padding-top: 80px;
+  max-width: var(--mobile-max-width);
+  margin: 0 auto 60px;
+  @include tablet {
+    padding-top: 170px;
+    max-width: var(--max-width);
+  }
+
+  nav,
+  .project--tools,
+  .project--features {
+    margin: 0 auto;
+    max-width: var(--mobile-inner-max-width);
+  }
+  @include tablet {
+    max-width: var(--inner-max-width);
+  }
+}
+
+.project--dotted_line {
+  @include dotted-line;
+  margin: 10px 0;
+  @include tablet {
+    margin: 20px 0;
+  }
+}
+
+.project--title-container {
+  text-align: center;
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--accent-blue);
+  }
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--text-black);
+  }
+  @include tablet {
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+// LINKS
+.project--links-list {
+  li {
+    margin: 0 auto 12px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a,
+  svg {
+    color: var(--text-black);
+  }
+  a {
+    margin-left: 5px;
+    text-decoration: underline;
+    font-size: 1rem;
+  }
+}
+
+// TOOLS
+.project--tools {
+  &-title {
+    color: var(--accent-blue);
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  &-body {
+    color: var(--text-black);
+    font-size: 1rem;
+    letter-spacing: 0.025rem;
+  }
+}
+
+.project--features {
+  &-title {
+    color: var(--accent-blue);
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  &-title_two {
+    color: var(--text-black);
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  &-description {
+    color: var(--text-black);
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  section {
+    margin-bottom: 10px;
+  }
+  &-list {
+    li {
+      list-style-type: circle;
+      list-style-position: outside;
+      margin-left: 1.5rem;
+      margin-bottom: 5px;
+      color: var(--text-black);
+      font-weight: 400;
+    }
+
+  }
+}
