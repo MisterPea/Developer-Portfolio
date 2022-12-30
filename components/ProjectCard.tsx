@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from 'next/link';
 import { roboto, RobotoSerif } from '../helpers/fonts';
-import Image from "next/image";
+import Image from 'next/image';
 
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;

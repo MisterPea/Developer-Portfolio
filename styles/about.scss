@@ -21,6 +21,20 @@
   }
 }
 
+.about--portrait {
+  margin: 0 auto;
+  height: 110px;
+  width: 110px;
+  canvas {
+    height: 100%;
+    width: 100%;
+  }
+  @include tablet {
+    height: 150px;
+    width: 150px;
+  }
+}
+
 .about--dotted_line {
   @include dotted-line;
 }

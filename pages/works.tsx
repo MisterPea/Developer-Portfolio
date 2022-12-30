@@ -1,10 +1,18 @@
 import ProjectCard from '../components/ProjectCard';
-import { roboto,RobotoSerif } from '../helpers/fonts';
+import { roboto, RobotoSerif } from '../helpers/fonts';
 import image from '../assets/iPadGroup.png';
+import { motion } from 'framer-motion';
+import { galleryVariant } from '../helpers/galleryVariants';
 
 export default function Works() {
   return (
-    <div className="works--container">
+    <motion.div
+      initial={galleryVariant.galleryStart}
+      animate={galleryVariant.galleryEnter}
+      exit={galleryVariant.galleryExit}
+      variants={galleryVariant}
+      className="works--container"
+    >
       <p className={`works--header ${roboto.className}`}>Here&apos;s a selection of some recent projects.</p>
       <div className="works--dotted_line" />
       <div className='works--cards-container'>
@@ -47,6 +55,6 @@ export default function Works() {
           </li>
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }

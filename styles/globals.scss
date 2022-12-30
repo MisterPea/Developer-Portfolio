@@ -1,5 +1,6 @@
 @import "./mixins.scss";
-@import "./project.scss";
+@import "./project-page.scss";
+@import "./project-card.scss";
 @import "./header.scss";
 @import "./works.scss";
 @import "./about.scss";
@@ -48,17 +49,6 @@ body {
     z-index: -1;
   }
 }
-// html {
-//   background-color: var(--background-solid);
-
-// }
-
-// body {
-
-//   min-height: 100%;
-//   // height: 100vh;
-//   position: relative;
-// }
 
 .footer {
   position: fixed;
