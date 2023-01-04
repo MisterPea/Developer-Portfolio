@@ -1,27 +1,21 @@
 import { HiLink } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
-import { FiTool } from 'react-icons/fi';
-import { default as Icon } from '../../components/Icons/Unsequenced';
-import ArtIcon from '../../components/Icons/ArtIcon';
+import { RobotoSerif, roboto } from '../../helpers/fonts';
 
 
-export default function FineArtPortfolio() {
+export default function Unsequenced() {
   return (
     <div className="project--container">
       <div className='project--title-container'>
-        <div className='project--title-inner_wrapper'>
-          <div className='project--title_icon'>
-            <ArtIcon />
-          </div>
-          <h1 className="project--title">Fine Art Portfolio with CMS</h1>
-        </div>
+        <h1 className={`project--title ${RobotoSerif.className}`}>Fine Art Portfolio with CMS</h1>
+        <h2 className={`project--subtitle ${roboto.className}`}>Image portfolio and a CMS that allows the user to upload an image and crop it for a thumbnail, as well as add a title and specs.</h2>
       </div>
-      <h2 className="project--subtitle">Image portfolio and CMS that allows the user to upload and crop images for thumbnails, as well as add naming.</h2>
+      <div className='project--dotted_line' />
       <nav className="project--links">
-        <ul className='project--links-list'>
+        <ul className={`project--links-list ${roboto.className}`}>
           <li className='project--links-item'>
             <HiLink size={20} />
-            <a target='_blank' rel="noreferrer" href="https://www.perryangelora.com">https://perryangelora.com</a>
+            <a target='_blank' rel="noreferrer" href="https://perryangelora.com">https://perryangelora.com</a>
           </li>
           <li className='project--links-item'>
             <HiLink size={20} />
@@ -33,28 +27,32 @@ export default function FineArtPortfolio() {
           </li>
         </ul>
       </nav>
+      <div className='project--dotted_line' />
       <div className="project--tools">
-        <h4 className="project--tools-title">Tools<span><FiTool size={12} /></span>:</h4>
-        <p className="project--tools-body">Next.js/React.js, SCSS, Framer-Motion, Github-Auth, AWS S3 Client v3</p>
+        <h3 className={`project--tools-title ${RobotoSerif.className}`}>Tools</h3>
+        <p className={`project--tools-body ${roboto.className}`}>Next.js/React.js, SCSS, Framer-Motion, Github-Auth, AWS S3 Client v3</p>
       </div>
+      <div className='project--dotted_line' />
       <div className="project--features">
-        <h3 className="project--features-title">The idea/features</h3>
-        <p className="project--features-description">Create an uncomplicated viewer for fine-art images. Additionally, have a way to add/update/remove images via a CMS.</p>
+        <h3 className={`project--features-title ${RobotoSerif.className}`}>The idea/features</h3>
+        <p className={`project--features-description ${roboto.className}`}>Create an uncomplicated viewer for fine-art images. Additionally, have a frictionless way to add/update/remove images via a CMS.</p>
         <section className="project--features-section">
-          <h4 className="project--features-title_two">Features include:</h4>
-          <ul className="project-features-list">
-            <li>Ability to upload and crop images, and tag them with a title and specs (medium dimensions).</li>
-            <li>Images are able to be ordered via drag-reorder.</li>
-            <li>Load appropriate image sizes per screen size.</li>
-            <li>Image data is stored via dynamically created JSON file.</li>
+          <h4 className={`project--features-title_two ${roboto.className}`}>Features include:</h4>
+          <ul className={`project--features-list ${roboto.className}`}>
+            <li>Image upload and cropping with the ability to add a title and specifications (such as medium and  dimensions).</li>
+            <li>Drag-and-drop reordering of images.</li>
+            <li>Responsive design that automatically loads appropriate image sizes for different screen sizes.</li>
+            <li>Dynamic storage of image data using JSON.</li>
+            <li>CMS functionality for easy management of portfolio content.</li>
           </ul>
         </section>
         <section className="project--features-section">
-          <h4 className="project--features-title_two">Challenges:</h4>
-          <ul className="project--features-list">
-            <li>Incrementally saving reordered images without explicitly pressing a save button</li>
-            <li>Updating images on the build to allow the usage of blurHash.</li>
-            <li>Compilation errors with SWC - had to downgrade to a previous canary version.</li>
+          <h4 className={`project--features-title_two ${roboto.className}`}>Challenges:</h4>
+          <ul className={`project--features-list ${roboto.className}`}>
+            <li>Implementing a system for incrementally saving the reordered images without requiring the user to press a save button.</li>
+            <li>Updating the images during the build process to enable the use of blurHash.</li>
+            <li>Debugging compilation errors related to SWC.</li>
+            <li>Integrating the CMS functionality to allow for easy management of portfolio content.</li>
           </ul>
         </section>
       </div>

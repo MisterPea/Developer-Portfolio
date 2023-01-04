@@ -1,8 +1,8 @@
-const easing = [0.175, 0.85, 0.42, 0.96];
+const easing = [.14, .66, .48, 1];
 
 export const galleryVariant = {
   galleryStart: {
-    y:10,
+    y: 10,
     opacity: 0,
     transition: {
       ease: easing,
@@ -19,10 +19,10 @@ export const galleryVariant = {
   },
   galleryExit: {
     y: -10,
-    opacity:0,
+    opacity: 0,
     transition: {
       ease: easing,
-      duration: 0.3
+      duration: 0.5
     }
   }
 };

@@ -33,26 +33,27 @@ export default function SimpleStorageServiceUI() {
       <div className='project--dotted_line' />
       <div className="project--features">
         <h3 className={`project--features-title ${RobotoSerif.className}`}>The idea/features</h3>
-        <p className={`project--features-description ${roboto.className}`}>Accessing S3 instances can be a time consuming process. This implementation looks to streamline the process of uploading and accessing your files.</p>
+        <p className={`project--features-description ${roboto.className}`}>Simplify the process of managing buckets, folders and files on an S3 instance. Accomplish this by removing the frictions involved in these transactions and packaging it in a simple, user friendly UI.</p>
         <section className="project--features-section">
-          <h4 className={`project--features-title_two ${RobotoSerif.className}`}>Features include:</h4>
+          <h4 className={`project--features-title_two ${roboto.className}`}>Features include:</h4>
           <ul className={`project--features-list ${roboto.className}`}>
-            <li>Creation/deletion of buckets and folders.</li>
-            <li>Upload/download/delete files through a dialog or drag and drop.</li>
-            <li>Automatic renaming on files with the same name.</li>
-            <li>Breadcrumb folder navigation</li>
+            <li>Easily create and delete buckets and folders.</li>
+            <li>Upload files using a dialog or drag and drop feature.</li>
+            <li>Intuitive file download and delete.</li>
+            <li>Automatically renaming of uploaded files of the same name.</li>
+            <li>Breadcrumb navigation to easily move between folders.</li>
             <li>Bucket and folder navigation is done via query string; allowing bookmarking and sharing.</li>
-            <li>Usage across all screen sizes</li>
+            <li>Access the app on any device, regardless of screen size.</li>
           </ul>
         </section>
         <section className="project--features-section">
-          <h4 className={`project--features-title_two ${RobotoSerif.className}`}>Challenges:</h4>
+          <h4 className={`project--features-title_two ${roboto.className}`}>Challenges:</h4>
           <ul className={`project--features-list ${roboto.className}`}>
-            <li>Have localStack (a Docker-based system) properly communicate with my app (a separate, Docker-based application)</li>
-            <li>Design a system/schema to take advantage of the object-based nature of S3.</li>
-            <li>Handle multiple, simultaneous uploads</li>
-            <li>Routing with Nginx</li>
-            <li>Dragging/Dropping to subfolder path</li>
+            <li>Establishing proper communication between localStack (a Docker-based system) and the app (a separate, Docker-based application).</li>
+            <li>Creating a system and schema that takes advantage of the object-based structure of S3.</li>
+            <li>Managing multiple concurrent uploads.</li>
+            <li>Routing issues with Nginx <code>(413 - Request Entity Too Large)</code></li>
+            <li>Allowing for drag and drop functionality to subfolder paths.</li>
           </ul>
         </section>
       </div>

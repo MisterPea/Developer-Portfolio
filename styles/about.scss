@@ -2,12 +2,24 @@
 
 .about--container {
   max-width: var(--mobile-max-width);
-  padding-top: 80px;
+  // padding-top: 80px;
   margin: 0 auto 40px;
   @include tablet {
-    padding-top: 170px;
-    max-width: var(--max-width);
-    margin: 0 auto 40px;
+    // padding-top: 170px;
+    max-width: var(--tablet-max-width);
+    margin: 0 auto 120px;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  70%{
+    opacity: 0.6;
+
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -16,6 +28,11 @@
   text-align: center;
   color: var(--text-black);
   font-size: 1.75rem;
+  animation-name: fadeIn;
+  animation-duration: 200ms;
+  animation-delay: 0ms;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-out;
   @include tablet {
     font-size: 2.25rem;
   }
@@ -25,6 +42,11 @@
   margin: 0 auto;
   height: 110px;
   width: 110px;
+  animation-name: fadeIn;
+  animation-duration: 250ms;
+  animation-delay: 50ms;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-out;
   canvas {
     height: 100%;
     width: 100%;
@@ -45,7 +67,7 @@
   margin: 20px auto;
   @include tablet {
     margin: 30px auto;
-    max-width: var(--inner-max-width);
+    max-width: var(--tablet-inner-max-width);
     padding: 0 70px;
   }
 }
@@ -56,16 +78,34 @@
   margin-bottom: 30px;
   font-weight: 300;
   font-size: 1.2rem;
+  animation-name: fadeIn;
+  animation-duration: 250ms;
+  animation-delay: 100ms;
+  animation-fill-mode:backwards;
+  animation-timing-function: ease-out;
 }
 
 .about--body_text {
   font-size: 1rem;
   font-weight: 400;
   line-height: 150%;
+  animation-name: fadeIn;
+  animation-duration: 200ms;
+  animation-delay: 200ms;
+  animation-fill-mode:backwards;
+  animation-timing-function: ease-out;
 }
 
 .about--links {
   margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation-name: fadeIn;
+  animation-duration: 200ms;
+  animation-delay: 260ms;
+  animation-fill-mode:backwards;
+  animation-timing-function: ease-out;
   @include tablet {
     margin: 30px auto 0;
   }
@@ -78,19 +118,49 @@
   font-size: 1.5rem;
   color: var(--text-black);
   @include tablet {
-    margin-bottom: 0;
+    margin-bottom: 5px;
   }
 }
 
 .about--link_holder {
   display: flex;
-  width: fit-content;
-  margin: 0 auto;
+  position: relative;
   li {
     margin: 0 10px;
-    height: 2rem;
+    height: 24px; // height corresponds svg height
+
     a {
       color: var(--text-black);
+    }
+  }
+  @include tablet {
+    li {
+      cursor: pointer;
+    }
+    li:hover {
+      &::before {
+        opacity: 1;
+        height: 34px;
+        width: 34px;
+        margin-top: -5px;
+        margin-left: -5px;
+        transform: scale(1, 1);
+        z-index: -1;
+      }
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      height: 34px;
+      width: 34px;
+      margin-top: -5px;
+      margin-left: -5px;
+      border-radius: 50%;
+      mix-blend-mode: multiply;
+      background-color: #6cbbe5;
+      transform: scale(0, 0);
+      opacity: 0;
+      transition: all 300ms ease-in-out;
     }
   }
 }

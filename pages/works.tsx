@@ -1,10 +1,42 @@
 import ProjectCard from '../components/ProjectCard';
 import { roboto, RobotoSerif } from '../helpers/fonts';
-import image from '../assets/iPadGroup.png';
+import iPhones from '../public/images/iPhone_combined.png';
+import s3Combo from '../public/images/s3_combo.png';
+import nytCombo from '../public/images/nyt_combo.png';
+import fineArtCombo from '../public/images/fine_art_combo.png';
 import { motion } from 'framer-motion';
 import { galleryVariant } from '../helpers/galleryVariants';
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    ease: [.14, .66, .48, .98],
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.125,
+    },
+  }
+};
+
+const item = {
+  hidden: {
+    transition: {
+      duration: 0.5,
+      type: 'tween',
+    },
+    opacity: 0,
+  },
+  show: {
+    transition: {
+      duration: 0.5,
+      type: 'tween',
+    },
+    opacity: 1,
+  },
+};
+
 export default function Works() {
+
   return (
     <motion.div
       initial={galleryVariant.galleryStart}
@@ -16,44 +48,44 @@ export default function Works() {
       <p className={`works--header ${roboto.className}`}>Here&apos;s a selection of some recent projects.</p>
       <div className="works--dotted_line" />
       <div className='works--cards-container'>
-        <ul className="works--cards-list">
-          <li className="works--card-item">
+        <motion.ul
+          variants={container}
+          initial='hidden'
+          animate='show'
+          className="works--cards-list">
+          <motion.li variants={item} className="works--card-item">
             <ProjectCard
               title='Unsequenced'
-              topDesc="A Pomodoro Technique-inspired task/timer app for iOS devices."
-              btmDesc="Reclaim time and regain focus. This app allows you to take the Pomodoro concept and enumerate it."
-              image={image}
+              topDesc="A Pomodoro Technique-inspired task/timer app for the iPhone, developed to help you stay on track and effectively manage your time."
+              image={iPhones}
               link='works/unsequenced'
             />
-          </li>
-          <li className="works--card-item">
+          </motion.li>
+          <motion.li variants={item} className="works--card-item">
             <ProjectCard
               title='S3-UI'
-              topDesc="A full-stack UI for AWS&apos;s Simple Storage Service."
-              btmDesc="Streamlining the process of managing your files when using Simple Storage Service.."
-              image={image}
+              topDesc="A full-stack UI for AWS&apos;s Simple Storage Service that streamlines essential actions and simplifies the process of file uploads and downloads."
+              image={s3Combo}
               link='works/simple-storage-service-ui'
             />
-          </li>
-          <li className="works--card-item">
+          </motion.li>
+          <motion.li variants={item} className="works--card-item">
             <ProjectCard
-              title='NY Times Aggregator & Daily Email Subscription'
-              topDesc="NY Times Top Stories combined with a daily email of user-selected top stories."
-              btmDesc="Reclaim time and regain focus. This app allows you to take the Pomodoro concept and enumerate it."
-              image={image}
-              link='works/unsequenced'
+              title='News Aggregator & Daily Email Subscription'
+              topDesc="A portal to view Top Stories from the NY Times, and subscribe to a daily email of user-selected story topics."
+              image={nytCombo}
+              link='works/top-stories'
             />
-          </li>
-          <li className="works--card-item">
+          </motion.li>
+          <motion.li variants={item} className="works--card-item">
             <ProjectCard
-              title='Fine Art Portfolio with CMS'
-              topDesc="Image portfolio and a CMS that allows the user to upload an image and crop it for a thumbnail, as well as add a title and specs."
-              btmDesc="Reclaim time and regain focus. This app allows you to take the Pomodoro concept and enumerate it."
-              image={image}
-              link='works/unsequenced'
+              title='Fine Art Portfolio & CMS'
+              topDesc="Image portfolio coupled with a CMS, allowing images uploads, semi-autonomous thumbnail creation, image labeling and organization."
+              image={fineArtCombo}
+              link='works/fine-art-portfolio'
             />
-          </li>
-        </ul>
+          </motion.li>
+        </motion.ul>
       </div>
     </motion.div>
   );

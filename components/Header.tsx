@@ -58,7 +58,7 @@ export default function Header() {
       observer.observe(titleText.current);
     }
   }, [titleText.current]);
-  
+
   function scrollToTop() {
     window.scrollTo({
       top: 0,
@@ -93,10 +93,14 @@ export default function Header() {
           </nav>
         </div>
       </div>
-      <div ref={titleBody} style={{ display: currentPage !== 'works' ? 'none' : 'block' }} className={`header--title large ${RobotoSerif.className}`}>
+      <div ref={titleBody} className={`header--title large ${RobotoSerif.className}`}>
+        <h1 style={{ display: currentPage !== 'works' ? 'none' : 'block' }} ref={titleText} className='header--title-name'>Hi, I&apos;m Perry.</h1>
+        <h1 style={{ display: currentPage !== 'works' ? 'none' : 'block' }} className='header--title-sub_title'>Design Technologist/Jack of Many Trades...</h1>
+      </div>
+      {/* <div ref={titleBody} style={{ display: currentPage !== 'works' ? 'none' : 'block' }} className={`header--title large ${RobotoSerif.className}`}>
         <h1 ref={titleText} className='header--title-name'>Hi, I&apos;m Perry.</h1>
         <h1 className='header--title-sub_title'>Design Technologist/Jack of Many Trades...</h1>
-      </div>
+      </div> */}
     </header>
   );
 }

@@ -8,7 +8,7 @@
     content: "";
     position: fixed;
     background: linear-gradient(180deg, #ebe6e1 0%, rgba(235, 230, 225, 0.99) 46.59%, rgba(235, 230, 225, 0) 100%);
-    height: 50px;
+    height: 65px;
     width: 100vw;
     top: 0;
     left: 0;
@@ -27,6 +27,9 @@
       right: 0;
       z-index: 1;
     }
+    max-width: var(--tablet-max-width);
+  }
+  @include desktop {
     max-width: var(--max-width);
   }
 }
@@ -43,6 +46,9 @@
   display: flex;
   justify-content: space-between;
   @include tablet {
+    width: var(--tablet-max-width);
+  }
+  @include desktop {
     width: var(--max-width);
   }
 }
@@ -53,7 +59,7 @@
   margin-top: 7px;
   font-weight: 500;
   color: var(--text-black);
-  transition: transform 300ms ease-in-out;
+  transition: transform 360ms ease-in-out;
   span {
     color: var(--accent-blue);
     margin-left: 1px;
@@ -72,7 +78,7 @@
     font-weight: 400;
     justify-content: flex-end;
     font-size: 0.9rem;
-    padding-top: 5px;
+    padding-top: 10px;
     li {
       margin-right: 5px;
     }
@@ -104,9 +110,27 @@
   background-color: var(--accent-blue);
   width: 100%;
   transform: scaleX(0);
-  transition: transform 300ms ease-in-out;
+  transition: transform 300ms cubic-bezier(.19,.94,.42,.99);
   &.active {
     transform: scaleX(1);
+  }
+}
+
+@keyframes fadeOutLarge {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInLarge {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -115,27 +139,35 @@
   max-width: var(--mobile-inner-max-width);
   margin: 0 auto;
   font-size: 1rem;
-  color: var(--off-black);
+  color: var(--text-black);
   line-height: 225%;
-  transition: opacity 200ms ease-in-out;
   &.small {
-    opacity: 0;
+    animation-name: fadeOutLarge;
+    animation-duration: 300ms;
+    animation-fill-mode:forwards;
+    animation-timing-function: ease-out;
   }
   &.large {
-    opacity: 1;
+    animation-name: fadeInLarge;
+    animation-duration: 530ms;
+    animation-fill-mode:backwards;
+    animation-timing-function: cubic-bezier(.52,.21,.84,.54);
   }
   @include tablet {
     padding-top: 110px;
-    max-width: var(--inner-max-width);
+    max-width: var(--tablet-inner-max-width);
     margin: 0 auto;
     line-height: 250%;
     font-size: 1.15rem;
   }
+  @include desktop {
+    max-width: var(--inner-max-width);
+  }
 }
 
 .header--title-name {
-    font-weight: 500;
-    color: var(--accent-blue);
+  font-weight: 500;
+  color: var(--accent-blue);
 }
 
 .header--title-sub_title {

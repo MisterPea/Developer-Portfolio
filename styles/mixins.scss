@@ -1,5 +1,5 @@
 $tablet: 810px;
-$desktop: 2000px;
+$desktop: 1024px;
 
 @mixin tablet {
   @media only screen and (min-width: #{$tablet}) {
@@ -13,9 +13,29 @@ $desktop: 2000px;
   }
 }
 
-
 @mixin dotted-line {
   width: 100%;
   margin: 3px 0;
   border-bottom: 2px dotted var(--accent-blue);
+}
+
+@mixin dotted-line-lite {
+  width: 100%;
+  margin: 3px 0;
+  border-bottom: 2px dotted var(--accent-blue-lite);
+}
+
+@mixin blur-background {
+  backdrop-filter: blur(12px);
+}
+
+@mixin underline-init {
+  display: inline;
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent-blue-lite), var(--accent-blue-lite));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 0px;
+  padding-bottom: 2px;
+  line-height: 125%;
 }
