@@ -1,0 +1,142 @@
+[
+  {
+    "projectSlug": "unsequenced",
+    "mainImage":"iPhone_combined.png",
+    "mainPageDescription": "A Pomodoro Technique-inspired task/timer app for the iPhone, developed to help you stay on track and effectively manage your time.",
+    "title": "Unsequenced",
+    "subTitle": "A Pomodoro Technique-inspired task/timer app for iOS devices.",
+    "links": [
+      {
+        "title": "Beta testing - Click to Request a Link.",
+        "url": "#",
+        "icon": "link"
+      },
+      {
+        "title": "https://github.com/MisterPea/Unsequenced",
+        "url": "https://github.com/MisterPea/Unsequenced",
+        "icon": "github"
+      }
+    ],
+    "tools": "Adobe XD, Adobe Illustrator, React, React-Native, Expo, Redux/Toolkit, TypeScript, Jest",
+    "ideaFeatures": "A time/task management app inspired by the Pomodoro Technique. With an ever-entrenched fight for our attention, the Pomodoro Technique is a proven method to increase productivity and regain focus. This app allows you to take the Pomodoro concept and shape it to your needs.",
+    "featuresInclude": [
+      "Notifications as Tasks are completed — while the app is in foreground or background.",
+      "All user info and progress is held locally, on the user's device.",
+      "Ability to automatically add breaks between tasks, as well as reorder and modify tasks after they're added."
+    ],
+    "challenges": [
+      "Smoothly handling of notifications and task activities as the app moves to or returns from the background.",
+      "Designing notification triggers to occur at the right times, such as when a task expires but not when it is completed or reset.",
+      "Deciding on the most effective method to interact with and play tasks.",
+      "Implementing swipe functionality within a drag and drop interface in a way that is intuitive and easy to use."
+    ]
+  },
+  {
+    "projectSlug": "simple-storage-service-ui",
+    "mainImage":"s3_combo.png",
+    "mainPageDescription": "A full-stack UI for AWS's Simple Storage Service that streamlines essential actions and simplifies the process of file uploads and downloads.",
+    "title": "S3-UI",
+    "subTitle": "A full-stack UI for AWS's Simple Storage Service.",
+    "links": [
+      {
+        "title": "https://objectui.misterpea.me",
+        "url": "https://objectui.misterpea.me",
+        "icon": "link"
+      },
+      {
+        "title": "https://github.com/MisterPea/s3-ui",
+        "url": "https://github.com/MisterPea/s3-ui",
+        "icon": "github"
+      }
+    ],
+    "tools": "Adobe XD, Adobe Illustrator, React.js, React-Router, SCSS, Framer-Motion, Redux, Node/Express.js, AWS S3 Client v3, Docker, Nginx, GCP Compute Engine, localStack, Jest/Enzyme, Github Actions",
+    "ideaFeatures": "Simplify the process of managing buckets, folders and files on an S3 instance. Accomplish this by removing the frictions involved in these transactions and packaging it in a simple, user friendly UI.",
+    "featuresInclude": [
+      "Easily create and delete buckets and folders.",
+      "Upload files using a dialog or drag and drop feature.",
+      "Automatically renaming of uploaded files of the same name.",
+      "Breadcrumb navigation to easily move between folders.",
+      "Bucket and folder navigation is done via query string; allowing bookmarking and sharing.",
+      "Intuitive file download and delete.",
+      "Access the app on any device, regardless of screen size."
+    ],
+    "challenges": [
+      "Establishing proper communication between localStack (a Docker-based system) and the app (a separate, Docker-based application).",
+      "Managing multiple concurrent uploads.",
+      "Creating a system and schema that takes advantage of the object-based structure of S3.",
+      "Routing issues with Nginx (413 - Request Entity Too Large)",
+      "Allowing for drag and drop functionality to subfolder paths."
+    ]
+  },
+  {
+    "projectSlug": "top-stories",
+    "mainImage":"nyt_combo.png",
+    "mainPageDescription": "A portal to view Top Stories from the NY Times, and subscribe to a daily email of user-selected story topics.",
+    "title": "NY Times Aggregator & Daily Email Subscription",
+    "subTitle": "NY Times Top Stories combined with a daily email of user-selected top stories.",
+    "links": [
+      {
+        "title": "https://thetimespage.misterpea.me",
+        "url": "https://thetimespage.misterpea.me",
+        "icon": "link"
+      },
+      {
+        "title": "https://github.com/MisterPea/NYTimes-Aggregator",
+        "url": "https://github.com/MisterPea/NYTimes-Aggregator",
+        "icon": "github"
+      }
+    ],
+    "tools": "React.js, React Router, Material-UI, SCSS, Node/Express.js, Docker, Nginx, Firebase Auth, Firestore NoSQL, GCP Compute Engine, GCP Cloud Functions, GCP Cloud Scheduler, Twilio Sendgrid",
+    "ideaFeatures": "News can be overwhelming and it can be easy to miss certain stories or topics that are important to us. This portal allows you to view synopses of articles and subscribe to topics that matter to you. Each morning, you'll receive an email with updates on the topics you've subscribed to, so you can stay informed on the issues that are important to you.",
+    "featuresInclude": [
+      "Email authentication.",
+      "Browse articles by section/subsection.",
+      "Ability to pause subscription.",
+      "View and update subscriptions and preferences from a single location."
+    ],
+    "challenges": [
+      "Ensuring efficient use of the NY Times API, particularly when handling a large number of subscriptions.",
+      "Avoiding the flashing of incomplete content, such as text appearing before images have finished loading.",
+      "Accurately tracking and categorizing articles by topic, particularly when topics have similar or overlapping keywords."
+    ]
+  },
+  {
+    "projectSlug": "fine-art-portfolio",
+    "mainImage":"fine_art_combo.png",
+    "mainPageDescription": "Image portfolio coupled with a CMS, allowing images uploads, semi-autonomous thumbnail creation, image labeling and organization.",
+    "title": "Fine Art Portfolio with CMS",
+    "subTitle": "Image portfolio and a CMS that allows the user to upload an image and crop it for a thumbnail, as well as add a title and specs.",
+    "links": [
+      {
+        "title": "https://perryangelora.com",
+        "url": "https://perryangelora.com",
+        "icon": "link"
+      },
+      {
+        "title": "https://cms.perryangelora.com",
+        "url": "https://cms.perryangelora.com",
+        "icon": "link"
+      },
+      {
+        "title": "https://github.com/MisterPea/Art-Portfolio",
+        "url": "https://github.com/MisterPea/Art-Portfolio",
+        "icon": "github"
+      }
+    ],
+    "tools": "Next.js/React.js, SCSS, Framer-Motion, Github-Auth, AWS S3 Client v3",
+    "ideaFeatures": "Create an uncomplicated viewer for fine-art images. Additionally, have a frictionless way to add/update/remove images via a CMS.",
+    "featuresInclude": [
+      "Image upload and cropping with the ability to add a title and specifications (such as medium and dimensions).",
+      "Drag-and-drop reordering of images.",
+      "Responsive design that automatically loads appropriate image sizes for different screen sizes.",
+      "Dynamic storage of image data using JSON.",
+      "CMS functionality for easy management of portfolio content."
+    ],
+    "challenges": [
+      "Implementing a system for incrementally saving the reordered images without requiring the user to press a save button.",
+      "Updating the images during the build process to enable the use of blurHash.",
+      "Debugging compilation errors related to SWC.",
+      "Integrating the CMS functionality to allow for easy management of portfolio content."
+    ]
+  }
+]
