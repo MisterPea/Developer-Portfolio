@@ -18,7 +18,7 @@ export const galleryVariant = {
     }
   },
   galleryExit: {
-    y: -10,
+    // y: -10,
     opacity: 0,
     transition: {
       ease: easing,

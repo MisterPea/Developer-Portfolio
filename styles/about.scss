@@ -9,6 +9,9 @@
     max-width: var(--tablet-max-width);
     margin: 0 auto 120px;
   }
+  + .footer {
+    display: none;
+  }
 }
 @keyframes fadeIn {
   0% {

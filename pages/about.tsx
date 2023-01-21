@@ -3,7 +3,7 @@ import { RobotoSerif, roboto } from '../helpers/fonts';
 import AboutImageCanvas from '../components/Canvas';
 import { motion } from 'framer-motion';
 import { galleryVariant } from '../helpers/galleryVariants';
-import { BaseSyntheticEvent, ChangeEvent, SyntheticEvent, KeyboardEvent } from 'react';
+import { KeyboardEvent } from 'react';
 
 export default function About(this: any) {
 

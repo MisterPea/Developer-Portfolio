@@ -23,7 +23,7 @@
         color: var(--accent-blue);
       }
       p {
-        background-size: 100% 1px;
+        background-size: 100% 3px;
         color: var(--text-black);
       }
     }
@@ -66,8 +66,9 @@
     }
     p {
       text-align: left;
-      line-height: 1.25;
       padding: 0;
+      line-height: 1.5;
+      // padding-bottom: 5px;
       font-weight: 400;
       font-size: 1.125rem;
       color: var(--text-black-lite);

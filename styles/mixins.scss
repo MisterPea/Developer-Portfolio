@@ -32,10 +32,9 @@ $desktop: 1024px;
 @mixin underline-init {
   display: inline;
   text-decoration: none;
-  background-image: linear-gradient(var(--accent-blue-lite), var(--accent-blue-lite));
+  background-image: linear-gradient(var(--accent-blue), var(--accent-blue));
   background-position: 0% 100%;
   background-repeat: no-repeat;
-  background-size: 0% 0px;
-  padding-bottom: 2px;
-  line-height: 125%;
+  background-size: 0% 3px;
+  padding-bottom: 3px;
 }

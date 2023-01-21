@@ -83,24 +83,22 @@ export default function Header() {
             <ul className={roboto.className}>
               <li>
                 <Link href='/works'>Work</Link>
-                <div className={`header--site_nav-bar ${currentPage === 'works' ? ' active' : ''}`} />
+                <div className={`header--site_nav-bar ${currentPage === 'works' ? 'active' : ''}`} />
               </li>
               <li>
                 <Link href='/about'>About</Link>
-                <div className={`header--site_nav-bar ${currentPage === 'about' ? ' active' : ''}`} />
+                <div className={`header--site_nav-bar ${currentPage === 'about' ? 'active' : ''}`} />
               </li>
             </ul>
           </nav>
         </div>
       </div>
       <div ref={titleBody} className={`header--title large ${RobotoSerif.className}`}>
-        <h1 style={{ display: currentPage !== 'works' ? 'none' : 'block' }} ref={titleText} className='header--title-name'>Hi, I&apos;m Perry.</h1>
-        <h1 style={{ display: currentPage !== 'works' ? 'none' : 'block' }} className='header--title-sub_title'>Design Technologist/Jack of Many Trades...</h1>
+        <h1 className={`header--title-name ${currentPage !== 'works' ? 'minimize' : ''}`} ref={titleText} >Hi, I&apos;m Perry.</h1>
+        <h1 className={`header--title-sub_title ${currentPage !== 'works' ? 'minimize' : ''}`} >Design Technologist/Jack of Many Trades...</h1>
+        {/* <h1 style={{ display: currentPage !== 'works' ? 'none' : 'block' }} ref={titleText} className='header--title-name'>Hi, I&apos;m Perry.</h1>
+        <h1 style={{ display: currentPage !== 'works' ? 'none' : 'block' }} className='header--title-sub_title'>Design Technologist/Jack of Many Trades...</h1> */}
       </div>
-      {/* <div ref={titleBody} style={{ display: currentPage !== 'works' ? 'none' : 'block' }} className={`header--title large ${RobotoSerif.className}`}>
-        <h1 ref={titleText} className='header--title-name'>Hi, I&apos;m Perry.</h1>
-        <h1 className='header--title-sub_title'>Design Technologist/Jack of Many Trades...</h1>
-      </div> */}
     </header>
   );
 }

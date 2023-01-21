@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
-
+import Footer from '../components/Footer';
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <AnimatePresence mode='wait'>
           <Component {...pageProps} key={route} />
         </AnimatePresence>
-        <footer className='footer'>x</footer>
+        <Footer />
       </>
     </>
   );

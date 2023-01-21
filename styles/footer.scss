@@ -2,9 +2,10 @@
 
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
-  height: 30px;
+  // padding-bottom: 30px;
+  // height: 30px;
 
   &--link_holder {
     display: flex;

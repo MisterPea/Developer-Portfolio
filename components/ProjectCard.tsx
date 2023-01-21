@@ -10,22 +10,24 @@ interface CardProps {
   title: string;
   topDesc: string;
   image: any;
-  link: `works/${string}`;
+  projectSlug: string;
 }
 
-export default function ProjectCard({ title, topDesc, link, image }: CardProps) {
+export default function ProjectCard({ title, topDesc, projectSlug, image }: CardProps) {
   return (
-    <Link href={link}>
+    <Link href={{
+      pathname: '/works/[slug]',
+      query: {slug: projectSlug}
+    }}>
       <div className="project_card">
         <div className="project_card--text">
           <h2 className={RobotoSerif.className}>{title}</h2>
           <p className={roboto.className}>{topDesc}</p>
         </div>
         <div className="project_card--image">
-          <Image src={image} alt={`${title} project image.`} style={{ objectFit: 'scale-down', width: '100%', height: '100%' }} />
+          <Image src={require(`../public/images/${image}`)} alt={`${title} project image.`} style={{ objectFit: 'scale-down', width: '100%', height: '100%' }} />
         </div>
       </div>
-
     </Link>
   );
 }
