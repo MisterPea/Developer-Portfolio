@@ -2,8 +2,9 @@ import { FaGithub, FaRegEnvelope, FaInstagram, FaLinkedinIn } from 'react-icons/
 import { RobotoSerif, roboto } from '../helpers/fonts';
 import AboutImageCanvas from '../components/Canvas';
 import { motion } from 'framer-motion';
-import { galleryVariant } from '../helpers/galleryVariants';
-import { KeyboardEvent } from 'react';
+import { aboutVariant } from '../helpers/galleryVariants';
+import { KeyboardEvent, useLayoutEffect } from 'react';
+import RingedIcon from '../components/RingedIcon';
 
 export default function About(this: any) {
 
@@ -41,13 +42,14 @@ export default function About(this: any) {
     }
   }
 
+
   return (
     <>
       <motion.div
-        initial={galleryVariant.galleryStart}
-        animate={galleryVariant.galleryEnter}
-        exit={galleryVariant.galleryExit}
-        variants={galleryVariant}
+        initial={aboutVariant.aboutStart}
+        animate={aboutVariant.aboutEnter}
+        exit={aboutVariant.aboutExit}
+        variants={aboutVariant}
         className="about--container"
       >
         <h1 className={`about--title ${RobotoSerif.className}`}>About me</h1>
@@ -67,32 +69,27 @@ export default function About(this: any) {
               onKeyDown={handleEnterDown.bind(this, { route: 'https://github.com/MisterPea' })}
               onClick={buttonClick.bind(this, 'https://github.com/MisterPea')}
               role='link'
-              tabIndex={0}
-            ><FaGithub size={24} />
+            >
+              <RingedIcon icon={<FaGithub size={26} />} />
             </li>
             <li
               onKeyDown={handleEnterDown.bind(this, { route: 'https://www.linkedin.com/in/perry-angelora/' })}
               onClick={buttonClick.bind(this, 'https://www.linkedin.com/in/perry-angelora/')}
               role='link'
-              tabIndex={0}
-            ><FaLinkedinIn size={24} /></li>
+            ><RingedIcon icon={<FaLinkedinIn size={26} />} /></li>
             <li
               onKeyDown={handleEnterDown.bind(this, { route: 'https://www.instagram.com/_mister_pea/' })}
               onClick={buttonClick.bind(this, 'https://www.instagram.com/_mister_pea/')}
               role='link'
-              tabIndex={0}
-            ><FaInstagram size={24} /></li>
+            ><RingedIcon icon={<FaInstagram size={26} />} /></li>
             <li
               onKeyDown={handleEnterDown.bind(this, { route: emailClick })}
               onClick={emailClick}
               role='link'
-              tabIndex={0}
-            ><FaRegEnvelope size={24} /></li>
+            ><RingedIcon icon={<FaRegEnvelope size={26} />} /></li>
           </ul>
         </nav>
-
       </motion.div>
-
     </>
   );
 }

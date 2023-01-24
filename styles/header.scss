@@ -183,8 +183,10 @@ a:has(+ div.active) {
   font-weight: 500;
   color: var(--accent-blue);
   margin-top: 0;
-  transition: margin-top 350ms ease-in-out;
+  transition: margin-top 10ms ease-in;
+  transition-delay: 150ms; 
   &.minimize {
+    // There's a chance this isn't needed.
     margin-top: -400px;
   }
 }

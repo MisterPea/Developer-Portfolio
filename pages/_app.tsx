@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { route } = useRouter();
+  const { asPath } = useRouter();
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <>
         <Header />
         <AnimatePresence mode='wait'>
-          <Component {...pageProps} key={route} />
+          <Component {...pageProps} key={asPath} />
         </AnimatePresence>
         <Footer />
       </>

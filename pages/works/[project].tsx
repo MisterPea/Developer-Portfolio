@@ -5,9 +5,9 @@ import { FaGithub } from 'react-icons/fa';
 import { RobotoSerif, roboto } from '../../helpers/fonts';
 import { motion } from 'framer-motion';
 
-
 export default function Project({ projectData }: { projectData: ProjectDataProps; }) {
   const { title, tools, subTitle, links, ideaFeatures, featuresInclude, challenges } = projectData;
+  
   return (
     <motion.div className='project--container'>
       <div className='project--title-container'>

@@ -17,9 +17,8 @@
   0% {
     opacity: 0;
   }
-  70%{
+  70% {
     opacity: 0.6;
-
   }
   100% {
     opacity: 1;
@@ -84,7 +83,7 @@
   animation-name: fadeIn;
   animation-duration: 250ms;
   animation-delay: 100ms;
-  animation-fill-mode:backwards;
+  animation-fill-mode: backwards;
   animation-timing-function: ease-out;
 }
 
@@ -95,7 +94,7 @@
   animation-name: fadeIn;
   animation-duration: 200ms;
   animation-delay: 200ms;
-  animation-fill-mode:backwards;
+  animation-fill-mode: backwards;
   animation-timing-function: ease-out;
 }
 
@@ -107,7 +106,7 @@
   animation-name: fadeIn;
   animation-duration: 200ms;
   animation-delay: 260ms;
-  animation-fill-mode:backwards;
+  animation-fill-mode: backwards;
   animation-timing-function: ease-out;
   @include tablet {
     margin: 30px auto 0;
@@ -130,7 +129,7 @@
   position: relative;
   li {
     margin: 0 10px;
-    height: 24px; // height corresponds svg height
+    height: 30px; // height corresponds svg height
 
     a {
       color: var(--text-black);
@@ -140,30 +139,41 @@
     li {
       cursor: pointer;
     }
-    li:hover {
-      &::before {
-        opacity: 1;
-        height: 34px;
-        width: 34px;
-        margin-top: -5px;
-        margin-left: -5px;
-        transform: scale(1, 1);
-        z-index: -1;
+
+    .icon-group {
+      height: 40px;
+      width: 40px;
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        transform: translate(7px, 7px);
+        transition: color 600ms ease-in-out;
       }
     }
-    li::before {
-      content: "";
-      position: absolute;
-      height: 34px;
-      width: 34px;
-      margin-top: -5px;
-      margin-left: -5px;
-      border-radius: 50%;
-      mix-blend-mode: multiply;
-      background-color: #6cbbe5;
-      transform: scale(0, 0);
-      opacity: 0;
-      transition: all 300ms ease-in-out;
+    .ring {
+      height: 40px;
+      width: 40px;
+      rotate: 90deg;
     }
+    .ring--circle {
+      stroke-dasharray: 200 200;
+      stroke-dashoffset: 200;
+      stroke: #129ae3;
+      fill: #129ae300;
+      stroke-width: 1;
+      transform: translate(-20px, -20px);
+      transition: all 400ms ease-in-out;
+    }
+    li:hover {
+      .ring--circle {
+        stroke-dasharray: 200 0;
+      }
+      .icon {
+        color: var(--accent-blue);
+      }
+    }
+
   }
 }
