@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 export default function Header() {
-  const [currentPage, setCurrentPage] = useState<string | undefined>(undefined);
   const route = useRouter();
   const titleText = useRef<HTMLHeadingElement>(null);
   const titleBody = useRef<HTMLDivElement>(null);
@@ -28,9 +27,11 @@ export default function Header() {
   // Intersection observer for the title
   const callIntersect = (entry: IntersectionObserverEntryInit[]) => {
     // for some reason isIntersecting: true is actually not intersecting, and visa versa
-    // not intersecting. But it works: if we remove the bigger title from the DOM the
+    // not intersecting. We're really looking that the text is within the bounds of the screen.
+    // But it works: if we remove the bigger title from the DOM the
     // smaller one auto-magically deploys.
     const displayLargeText = entry[0].isIntersecting;
+    console.log(entry[0], '<><>', route.asPath);
     if (displayLargeText) {
       deployRetractHeader('large');
     } else {
@@ -44,15 +45,6 @@ export default function Header() {
   };
 
   useEffect(() => {
-    let finalPath;
-    const path: string[] = route.pathname.split('/');
-    finalPath = path.reverse()[0];
-    if (finalPath !== currentPage) {
-      setCurrentPage(finalPath);
-    }
-  }, [route]);
-
-  useEffect(() => {
     if (titleText.current) {
       const observer = new IntersectionObserver(callIntersect, options);
       observer.observe(titleText.current);
@@ -64,6 +56,13 @@ export default function Header() {
       top: 0,
       behavior: 'smooth',
     });
+  }
+
+  // This preemptively sets the header for the work page when coming from somewhere else
+  function handleWorkClick() {
+    if (route.asPath !== '/works') {
+      deployRetractHeader('large');
+    }
   }
 
   return (
@@ -81,23 +80,23 @@ export default function Header() {
           </h1>
           <nav className='header--site_nav'>
             <ul className={roboto.className}>
-              <li>
+              <li
+                onClick={handleWorkClick}
+              >
                 <Link href='/works'>Work</Link>
-                <div className={`header--site_nav-bar ${currentPage === 'works' ? 'active' : ''}`} />
+                <div className={`header--site_nav-bar ${route.asPath === '/works' ? 'active' : ''}`} />
               </li>
               <li>
                 <Link href='/about'>About</Link>
-                <div className={`header--site_nav-bar ${currentPage === 'about' ? 'active' : ''}`} />
+                <div className={`header--site_nav-bar ${route.asPath === '/about' ? 'active' : ''}`} />
               </li>
             </ul>
           </nav>
         </div>
       </div>
       <div ref={titleBody} className={`header--title large ${RobotoSerif.className}`}>
-        <h1 className={`header--title-name ${currentPage !== 'works' ? 'minimize' : ''}`} ref={titleText} >Hi, I&apos;m Perry.</h1>
-        <h1 className={`header--title-sub_title ${currentPage !== 'works' ? 'minimize' : ''}`} >Design Technologist/Jack of Many Trades...</h1>
-        {/* <h1 style={{ display: currentPage !== 'works' ? 'none' : 'block' }} ref={titleText} className='header--title-name'>Hi, I&apos;m Perry.</h1>
-        <h1 style={{ display: currentPage !== 'works' ? 'none' : 'block' }} className='header--title-sub_title'>Design Technologist/Jack of Many Trades...</h1> */}
+        <h1 className={`header--title-name ${route.asPath === '/works' ? '' : 'minimize'}`} ref={titleText} >Hi, I&apos;m Perry.</h1>
+        <h1 className={`header--title-sub_title ${route.asPath === '/works' ? '' : 'minimize'}`} >Design Technologist/Jack of Many Trades...</h1>
       </div>
     </header>
   );
