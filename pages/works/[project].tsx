@@ -4,10 +4,12 @@ import { HiLink } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import { RobotoSerif, roboto } from '../../helpers/fonts';
 import { motion } from 'framer-motion';
+import LightboxURL from '../../components/Lightbox/LightboxURL';
+import { useState } from 'react';
 
 export default function Project({ projectData }: { projectData: ProjectDataProps; }) {
-  const { title, tools, subTitle, links, ideaFeatures, featuresInclude, challenges } = projectData;
-  
+  const { title, tools, subTitle, links, ideaFeatures, featuresInclude, challenges, productImages } = projectData;
+
   return (
     <motion.div className='project--container'>
       <div className='project--title-container'>
@@ -20,7 +22,7 @@ export default function Project({ projectData }: { projectData: ProjectDataProps
           {links.map((link, index) => (
             <li key={`${link.url}${index}`} className='project--links-item'>
               {link.icon === 'link' ? <HiLink size={20} /> : <FaGithub size={20} />}
-              <a target='_blank' rel="noreferrer" href={`${link.url}`}>{link.title}</a>
+              <a href={`${link.url}`} target='_blank' rel="noreferrer">{link.title}</a>
             </li>
           ))}
         </ul>
@@ -51,6 +53,11 @@ export default function Project({ projectData }: { projectData: ProjectDataProps
           </ul>
         </section>
       </div>
+      <div className='project--dotted_line' />
+      <section className="project--images-section">
+        <h3 className={`project--images-title ${RobotoSerif.className}`}>Project Images:</h3>
+        <LightboxURL imageList={productImages} nextFontAccess={roboto.className} />
+      </section>
     </motion.div>
   );
 }
