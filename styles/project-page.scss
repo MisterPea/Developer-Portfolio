@@ -26,14 +26,18 @@
 
 .project--container {
   max-width: var(--mobile-max-width);
-  margin: 0 auto 60px;
+  margin: 20px auto 60px;
   @include tablet {
+    margin-top: 0;
     max-width: var(--tablet-max-width);
   }
   @include desktop {
     max-width: var(--max-width);
   }
   
+  .project--container.lock {
+    overflow: hidden;
+  }
 
   .project--tools,
   .project--features {
@@ -156,7 +160,6 @@
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 5px;
-    padding-left: 1;
     animation-name: fadeInProject;
     animation-duration: 400ms;
     animation-timing-function: cubic-bezier(0.32, 0.17, 0.47, 0.95);
@@ -179,7 +182,7 @@
   }
 }
 
-.project--features {
+.project--features,.project--images {
   &-title {
     color: var(--accent-blue);
     text-align: left;
@@ -192,6 +195,7 @@
     animation-fill-mode: backwards;
     // animation-delay: 50ms;
   }
+  
   &-title_two {
     color: var(--text-black);
     font-weight: 500;
@@ -247,4 +251,8 @@
       width: fit-content;
     }
   }
+
+}
+.project--images-title{
+  text-align: center;
 }

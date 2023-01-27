@@ -1,7 +1,7 @@
 [
   {
     "projectSlug": "unsequenced",
-    "mainImage":"iPhone_combined.png",
+    "mainImage": "iPhone_combined.png",
     "mainPageDescription": "A Pomodoro Technique-inspired task/timer app for the iPhone, developed to help you stay on track and effectively manage your time.",
     "title": "Unsequenced",
     "subTitle": "A Pomodoro Technique-inspired task/timer app for iOS devices.",
@@ -29,11 +29,103 @@
       "Designing notification triggers to occur at the right times, such as when a task expires but not when it is completed or reset.",
       "Deciding on the most effective method to interact with and play tasks.",
       "Implementing swipe functionality within a drag and drop interface in a way that is intuitive and easy to use."
+    ],
+    "productImages": [
+      {
+        "url": "unsequenced_1.png",
+        "alt": "This is the main/landing screen",
+        "imageDesc": "This is the main/landing screen",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      },
+      {
+        "url": "unsequenced_2.png",
+        "alt": "We can create a Task Block, and choose options.",
+        "imageDesc": "We can create a Task Block, and choose options.",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      },
+      {
+        "url": "unsequenced_3.png",
+        "alt": "Once a Task Block is selected, we add Tasks.",
+        "imageDesc": "Once a Task Block is selected, we add Tasks.",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      },
+      {
+        "url": "unsequenced_4.png",
+        "alt": "We set the name and minute-duration.",
+        "imageDesc": "We set the name and minute-duration.",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      },
+      {
+        "url": "unsequenced_5.png",
+        "alt": "We can edit, duplicate, mark complete, drag-to-reorder…",
+        "imageDesc": "We can edit, duplicate, mark complete, drag-to-reorder…",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      },
+      {
+        "url": "unsequenced_6.png",
+        "alt": "…and we can delete.",
+        "imageDesc": "…and we can delete.",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      },
+      {
+        "url": "unsequenced_7.png",
+        "alt": "We also have the ability to edit the name and duration.",
+        "imageDesc": "We also have the ability to edit the name and duration.",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      },
+      {
+        "url": "unsequenced_8.png",
+        "alt": "When a Task completes, we are given a notification.",
+        "imageDesc": "When a Task completes, we are given a notification.",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      },
+      {
+        "url": "unsequenced_9.png",
+        "alt": "When all Tasks are complete, we are given a button to reset.",
+        "imageDesc": "When all Tasks are complete, we are given a button to reset.",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      },
+      {
+        "url": "unsequenced_10.png",
+        "alt": "There's also a simple Settings notification and dark mode options.",
+        "imageDesc": "There's also a simple Settings notification and dark mode options.",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      }
     ]
   },
   {
     "projectSlug": "simple-storage-service-ui",
-    "mainImage":"s3_combo.png",
+    "mainImage": "s3_combo.png",
     "mainPageDescription": "A full-stack UI for AWS's Simple Storage Service that streamlines essential actions and simplifies the process of file uploads and downloads.",
     "title": "S3-UI",
     "subTitle": "A full-stack UI for AWS's Simple Storage Service.",
@@ -66,11 +158,195 @@
       "Creating a system and schema that takes advantage of the object-based structure of S3.",
       "Routing issues with Nginx (413 - Request Entity Too Large)",
       "Allowing for drag and drop functionality to subfolder paths."
+    ],
+    "productImages": [
+      {
+        "url": "objectui1.webp",
+        "alt": "From the main page you can get view of all your buckets.",
+        "imageDesc": "From the main page you can get view of all your buckets.",
+        "dimensions": {
+          "h": 100,
+          "w": 140
+        },
+        "imageSize": {
+          "h": 1548,
+          "w": 2001
+        }
+      },
+      {
+        "url": "objectui2.webp",
+        "alt": "From the main page you can also easily create new buckets.",
+        "imageDesc": "From the main page you can also easily create new buckets.",
+        "dimensions": {
+          "h": 100,
+          "w": 140
+        },
+        "imageSize": {
+          "h": 1548,
+          "w": 2001
+        }
+      },
+      {
+        "url": "objectui3.webp",
+        "alt": "Deletion of buckets is possible, provided they are empty.",
+        "imageDesc": "Deletion of buckets is possible, provided they are empty.",
+        "dimensions": {
+          "h": 100,
+          "w": 140
+        },
+        "imageSize": {
+          "h": 1548,
+          "w": 2001
+        }
+      },
+      {
+        "url": "objectui4.webp",
+        "alt": "If your bucket is empty, you just have to confirm that you want to delete it.",
+        "imageDesc": "If your bucket is empty, you just have to confirm that you want to delete it.",
+        "dimensions": {
+          "h": 100,
+          "w": 140
+        },
+        "imageSize": {
+          "h": 1548,
+          "w": 2001
+        }
+      },
+      {
+        "url": "objectui5.webp",
+        "alt": "While viewing the bucket contents, you have some options.",
+        "imageDesc": "While viewing the bucket contents, you have some options.",
+        "dimensions": {
+          "h": 100,
+          "w": 140
+        },
+        "imageSize": {
+          "h": 1548,
+          "w": 2001
+        }
+      },
+      {
+        "url": "objectui6.webp",
+        "alt": "You can add a folder.",
+        "imageDesc": "You can add a folder.",
+        "dimensions": {
+          "h": 100,
+          "w": 140
+        },
+        "imageSize": {
+          "h": 1548,
+          "w": 2001
+        }
+      },
+      {
+        "url": "objectui7.webp",
+        "alt": "...empty folders are presented as such.",
+        "imageDesc": "...empty folders are presented as such.",
+        "dimensions": {
+          "h": 100,
+          "w": 140
+        },
+        "imageSize": {
+          "h": 1548,
+          "w": 2001
+        }
+      },
+      {
+        "url": "objectui8.webp",
+        "alt": "You can also download files to your device.",
+        "imageDesc": "You can also download files to your device.",
+        "dimensions": {
+          "h": 100,
+          "w": 140
+        },
+        "imageSize": {
+          "h": 1548,
+          "w": 2001
+        }
+      },
+      {
+        "url": "objectui9.webp",
+        "alt": "You can upload to a folder via dialog or drag and drop.",
+        "imageDesc": "You can upload to a folder via dialog or drag and drop.",
+        "dimensions": {
+          "h": 100,
+          "w": 140
+        },
+        "imageSize": {
+          "h": 1548,
+          "w": 2001
+        }
+      },
+      {
+        "url": "objectui10.webp",
+        "alt": "You can also upload to your current folder.",
+        "imageDesc": "You can also upload to your current folder.",
+        "dimensions": {
+          "h": 100,
+          "w": 140
+        },
+        "imageSize": {
+          "h": 1548,
+          "w": 2001
+        }
+      },
+      {
+        "url": "objectui11.webp",
+        "alt": "The mobile experience is similar, with less real-estate.",
+        "imageDesc": "The mobile experience is similar, with less real-estate.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "imageSize": {
+          "h": 1500,
+          "w": 778
+        }
+      },
+      {
+        "url": "objectui12.webp",
+        "alt": "Instead of discreet buttons, we have a general info button for files.",
+        "imageDesc": "Instead of discreet buttons, we have a general info button for files.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "imageSize": {
+          "h": 1500,
+          "w": 778
+        }
+      },
+      {
+        "url": "objectui13.webp",
+        "alt": "For folder interactions, we have a drop down.",
+        "imageDesc": "For folder interactions, we have a drop down.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "imageSize": {
+          "h": 1500,
+          "w": 778
+        }
+      },
+      {
+        "url": "objectui14.webp",
+        "alt": "Downloads, info, and deletions are handled via modal.",
+        "imageDesc": "Downloads, info, and deletions are handled via modal.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "imageSize": {
+          "h": 1500,
+          "w": 778
+        }
+      }
     ]
   },
   {
     "projectSlug": "top-stories",
-    "mainImage":"nyt_combo.png",
+    "mainImage": "nyt_combo.png",
     "mainPageDescription": "A portal to view Top Stories from the NY Times, and subscribe to a daily email of user-selected story topics.",
     "title": "NY Times Aggregator & Daily Email Subscription",
     "subTitle": "NY Times Top Stories combined with a daily email of user-selected top stories.",
@@ -98,11 +374,22 @@
       "Ensuring efficient use of the NY Times API, particularly when handling a large number of subscriptions.",
       "Avoiding the flashing of incomplete content, such as text appearing before images have finished loading.",
       "Accurately tracking and categorizing articles by topic, particularly when topics have similar or overlapping keywords."
+    ],
+    "productImages": [
+      {
+        "url": "unsequenced_1.png",
+        "alt": "This is the main/landing screen",
+        "imageDesc": "This is the main/landing screen",
+        "dimensions": {
+          "h": 250,
+          "w": 125
+        }
+      }
     ]
   },
   {
     "projectSlug": "fine-art-portfolio",
-    "mainImage":"fine_art_combo.png",
+    "mainImage": "fine_art_combo.png",
     "mainPageDescription": "Image portfolio coupled with a CMS, allowing images uploads, semi-autonomous thumbnail creation, image labeling and organization.",
     "title": "Fine Art Portfolio with CMS",
     "subTitle": "Image portfolio and a CMS that allows the user to upload an image and crop it for a thumbnail, as well as add a title and specs.",

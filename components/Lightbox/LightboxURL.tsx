@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { LightboxURLProps } from '../../helpers/types';
 import { TfiClose, TfiAngleLeft, TfiAngleRight } from 'react-icons/tfi';
+import { SlClose } from 'react-icons/sl';
 import { SyntheticBaseEvent } from '../../helpers/types';
 
 export default function LightboxURL({
@@ -28,8 +29,8 @@ export default function LightboxURL({
     // Here, we're initiating our IntersectionObserver for the lightbox contents
     const options = {
       root: null,
-      rootMargin: '0px',
-      thresholds: [0],
+      rootMargin: '-20px',
+      // thresholds: [0],
     };
     const observer = new IntersectionObserver(intersectCallback, options);
 
@@ -53,7 +54,6 @@ export default function LightboxURL({
         setCurrentImage(currentIndex);
         entries[0].target.classList.add('in-frame');
         entries[0].target.querySelector('.image-description')?.classList.add('in-frame');
-        console.log(entries[0].target);
       } else {
         entries[0].target.classList.remove('in-frame');
         entries[0].target.querySelector('.image-description')?.classList.remove('in-frame');
@@ -83,7 +83,7 @@ export default function LightboxURL({
   function inactiveZIndex(e: TransitionEvent) {
     if (e.propertyName === 'opacity') {
       if (!lightboxDiv.current?.classList.contains('active')) {
-        (lightboxDiv.current as HTMLElement).style.zIndex = '0';
+        (lightboxDiv.current as HTMLElement).style.zIndex = '-1';
       }
     }
   }
@@ -146,47 +146,56 @@ export default function LightboxURL({
         onKeyDown={handleKeyDown}
         style={{ backgroundColor: backgroundColor }}
       >
-        <button
-          className='main_image_container--close_button'
-          style={{ color: controlsColor }}
-          onClick={closeOverlay}
-        >
-          <TfiClose size={18} />
-        </button>
-        <button
-          className='main_image_container--nav_button-prev'
-          style={{ color: controlsColor, display: `${currentImage === 0 ? 'none' : 'block'}` }}
-          onClick={prevImage}
-        >
-          <TfiAngleLeft size={20} />
-        </button>
-        <button
-          className='main_image_container--nav_button-next'
-          style={{ color: controlsColor, display: `${currentImage === imageArray.current.length - 1 ? 'none' : 'block'}` }}
-          onClick={nextImage}
-        >
-          <TfiAngleRight size={20} />
-        </button>
+        <span className='main_image_container--button_group'>
+          <button
+            className='main_image_container--close_button'
+            style={{ color: controlsColor }}
+            onClick={closeOverlay}
+          >
+            <TfiClose size={25} />
+          </button>
+          <button
+            className='main_image_container--nav_button-prev'
+            style={{ color: controlsColor, display: `${currentImage === 0 ? 'none' : 'block'}` }}
+            onClick={prevImage}
+          >
+            <TfiAngleLeft size={30} />
+          </button>
+          <button
+            className='main_image_container--nav_button-next'
+            style={{ color: controlsColor, display: `${currentImage === imageArray.current.length - 1 ? 'none' : 'block'}` }}
+            onClick={nextImage}
+          >
+            <TfiAngleRight size={30} />
+          </button>
+        </span>
         <ul
           className="image_container"
           ref={imageUL}
           style={{ padding: imageBoxPadding }}
         >
-          {imageList.map(({ alt, url, imageDesc }) => (
+          {imageList.map(({ alt, url, imageDesc, dimensions }) => (
             <li
-              key={alt}
+              key={`${alt}-main-image`}
               className={'image_container--item'}
             >
-              <div className='image_container--image_wrap-outer'>
+              <div
+                className='image_container--image_wrap-outer'
+                style={dimensions.h > dimensions.w ? { padding: '20px' } : { padding: '0px' }}
+              >
                 <Image
-                  fill src={require(`/public/images/product_images/${url}`)}
-                  alt={alt} style={{ objectFit: 'contain' }}
+                  src={require(`/public/images/product_images/${url}`)}
+                  alt={`${alt} image`}
+                  style={{ objectFit: 'scale-down', height: 'inherit', width: 'unset' }}
                 />
                 <div className={`image-description ${nextFontAccess}`} style={textDescriptionStyle}>
                   <p>{imageDesc}</p></div>
               </div>
             </li>
           ))}
+          <button onClick={closeOverlay} className='mobile-close'>
+            <SlClose size={35} />
+          </button>
         </ul>
       </div>
       <div className="main_thumbnail_container">
@@ -195,16 +204,16 @@ export default function LightboxURL({
             <li
               style={{ height: dimensions.h, width: dimensions.w }}
               role='button'
-              key={alt}
+              key={`${alt}-thumb`}
               onClick={() => handleOnThumbClick(index)}
               className={`thumbnail_container--item-image_${index}`}
             >
-              <div>
-                <Image
-                  src={require(`/public/images/product_images/${url}`)}
-                  fill alt={alt} style={{ ...thumbnailStyle, objectFit: 'contain' }}
-                />
-              </div>
+              <Image
+                fill
+                src={require(`/public/images/product_images/${url}`)}
+                alt={`${alt} thumbnail`} style={{ ...thumbnailStyle, objectFit: 'contain' }}
+                sizes={`(max-width: ${dimensions.w}px) 100vw`}
+              />
             </li>
           ))}
         </ul>

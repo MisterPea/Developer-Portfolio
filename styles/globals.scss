@@ -5,6 +5,7 @@
 @import "./works.scss";
 @import "./about.scss";
 @import "./footer.scss";
+@import "./lightbox-style.scss";
 
 :root {
   --background-solid: #ebe6e1;
@@ -45,7 +46,6 @@ body {
   line-height: 1.25;
   white-space: pre-line;
   scroll-behavior: smooth;
-
   &::before {
     content: "";
     position: absolute;
@@ -56,6 +56,9 @@ body {
     background: var(--lines);
     background-size: 8px;
     z-index: -1;
+  }
+  &.no-scroll {
+    overflow: hidden;
   }
 }
 
