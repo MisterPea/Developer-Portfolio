@@ -20,7 +20,7 @@
     "tools": "Adobe XD, Adobe Illustrator, React, React-Native, Expo, Redux/Toolkit, TypeScript, Jest",
     "ideaFeatures": "A time/task management app inspired by the Pomodoro Technique. With an ever-entrenched fight for our attention, the Pomodoro Technique is a proven method to increase productivity and regain focus. This app allows you to take the Pomodoro concept and shape it to your needs.",
     "featuresInclude": [
-      "Notifications as Tasks are completed — while the app is in foreground or background.",
+      "Notifications as Tasks are completed \u2014 while the app is in foreground or background.",
       "All user info and progress is held locally, on the user's device.",
       "Ability to automatically add breaks between tasks, as well as reorder and modify tasks after they're added."
     ],
@@ -38,7 +38,8 @@
         "dimensions": {
           "h": 250,
           "w": 125
-        }
+        },
+        "blurHash": "LFQJT6Rk4:t7SkR*oboe00j]?bjY"
       },
       {
         "url": "unsequenced_2.png",
@@ -47,7 +48,8 @@
         "dimensions": {
           "h": 250,
           "w": 125
-        }
+        },
+        "blurHash": "LQODnHofIUWBD$WCxuoe00WBt7t6"
       },
       {
         "url": "unsequenced_3.png",
@@ -56,7 +58,8 @@
         "dimensions": {
           "h": 250,
           "w": 125
-        }
+        },
+        "blurHash": "LKPZorj]9Ff5$^a}xujZ4Tay%Mof"
       },
       {
         "url": "unsequenced_4.png",
@@ -65,25 +68,28 @@
         "dimensions": {
           "h": 250,
           "w": 125
-        }
+        },
+        "blurHash": "LKP?%Oof9Gaei[a}t8f600WB-;of"
       },
       {
         "url": "unsequenced_5.png",
-        "alt": "We can edit, duplicate, mark complete, drag-to-reorder…",
-        "imageDesc": "We can edit, duplicate, mark complete, drag-to-reorder…",
+        "alt": "We can edit, duplicate, mark complete, drag-to-reorder\u2026",
+        "imageDesc": "We can edit, duplicate, mark complete, drag-to-reorder\u2026",
         "dimensions": {
           "h": 250,
           "w": 125
-        }
+        },
+        "blurHash": "LMQJWIs:9GfkM_R*t7oe8^WB%goK"
       },
       {
         "url": "unsequenced_6.png",
-        "alt": "…and we can delete.",
-        "imageDesc": "…and we can delete.",
+        "alt": "\u2026and we can delete.",
+        "imageDesc": "\u2026and we can delete.",
         "dimensions": {
           "h": 250,
           "w": 125
-        }
+        },
+        "blurHash": "LMQcbfR69FxtIUj[xaax4mo}%gWB"
       },
       {
         "url": "unsequenced_7.png",
@@ -92,7 +98,8 @@
         "dimensions": {
           "h": 250,
           "w": 125
-        }
+        },
+        "blurHash": "LIPsx3j[4nf6?YR*t8s:4TWB%Mt7"
       },
       {
         "url": "unsequenced_8.png",
@@ -101,7 +108,8 @@
         "dimensions": {
           "h": 250,
           "w": 125
-        }
+        },
+        "blurHash": "LMD]o8t7~qfQ-;j[j[ay?bj[t7ay"
       },
       {
         "url": "unsequenced_9.png",
@@ -110,7 +118,8 @@
         "dimensions": {
           "h": 250,
           "w": 125
-        }
+        },
+        "blurHash": "L9PZfIIo0N%2NMt6%1Rk0Mt6^+WB"
       },
       {
         "url": "unsequenced_10.png",
@@ -119,7 +128,8 @@
         "dimensions": {
           "h": 250,
           "w": 125
-        }
+        },
+        "blurHash": "LQQm3MWB9Zs:R:WVoeoK8^kC%Nax"
       }
     ]
   },
@@ -166,12 +176,13 @@
         "imageDesc": "From the main page you can get view of all your buckets.",
         "dimensions": {
           "h": 100,
-          "w": 140
+          "w": 130
         },
         "imageSize": {
           "h": 1548,
           "w": 2001
-        }
+        },
+        "blurHash": "LLDT6Roe9Ffk^+oLIUaz4ToL-;j["
       },
       {
         "url": "objectui2.webp",
@@ -179,12 +190,13 @@
         "imageDesc": "From the main page you can also easily create new buckets.",
         "dimensions": {
           "h": 100,
-          "w": 140
+          "w": 130
         },
         "imageSize": {
           "h": 1548,
           "w": 2001
-        }
+        },
+        "blurHash": "LdE3J0j[00j[jtjtoffQD%j[?bj["
       },
       {
         "url": "objectui3.webp",
@@ -192,12 +204,13 @@
         "imageDesc": "Deletion of buckets is possible, provided they are empty.",
         "dimensions": {
           "h": 100,
-          "w": 140
+          "w": 130
         },
         "imageSize": {
           "h": 1548,
           "w": 2001
-        }
+        },
+        "blurHash": "LEAmxaoL00j]xuj@j[fQ4nj[~qj["
       },
       {
         "url": "objectui4.webp",
@@ -205,12 +218,13 @@
         "imageDesc": "If your bucket is empty, you just have to confirm that you want to delete it.",
         "dimensions": {
           "h": 100,
-          "w": 140
+          "w": 130
         },
         "imageSize": {
           "h": 1548,
           "w": 2001
-        }
+        },
+        "blurHash": "LHBDZ$oL00j[tRj@oLfQ4nj[~qj["
       },
       {
         "url": "objectui5.webp",
@@ -218,12 +232,13 @@
         "imageDesc": "While viewing the bucket contents, you have some options.",
         "dimensions": {
           "h": 100,
-          "w": 140
+          "w": 130
         },
         "imageSize": {
           "h": 1548,
           "w": 2001
-        }
+        },
+        "blurHash": "LsI=cCj[9Fj[Mxj[t7ay00j[-;fQ"
       },
       {
         "url": "objectui6.webp",
@@ -231,12 +246,13 @@
         "imageDesc": "You can add a folder.",
         "dimensions": {
           "h": 100,
-          "w": 140
+          "w": 130
         },
         "imageSize": {
           "h": 1548,
           "w": 2001
-        }
+        },
+        "blurHash": "LKCQ0,j[00j[V@j[ozaz00j[_3j["
       },
       {
         "url": "objectui7.webp",
@@ -244,12 +260,13 @@
         "imageDesc": "...empty folders are presented as such.",
         "dimensions": {
           "h": 100,
-          "w": 140
+          "w": 130
         },
         "imageSize": {
           "h": 1548,
           "w": 2001
-        }
+        },
+        "blurHash": "L68O3txa$~fRxpt6V@WB~Vt6ozj]"
       },
       {
         "url": "objectui8.webp",
@@ -257,12 +274,13 @@
         "imageDesc": "You can also download files to your device.",
         "dimensions": {
           "h": 100,
-          "w": 140
+          "w": 130
         },
         "imageSize": {
           "h": 1548,
           "w": 2001
-        }
+        },
+        "blurHash": "L48EGAt7xtof_2oeMxay~Ws:xvoz"
       },
       {
         "url": "objectui9.webp",
@@ -270,12 +288,13 @@
         "imageDesc": "You can upload to a folder via dialog or drag and drop.",
         "dimensions": {
           "h": 100,
-          "w": 140
+          "w": 130
         },
         "imageSize": {
           "h": 1548,
           "w": 2001
-        }
+        },
+        "blurHash": "LECGu%t79EWX_2ofIUWC4ToL?bj["
       },
       {
         "url": "objectui10.webp",
@@ -283,12 +302,13 @@
         "imageDesc": "You can also upload to your current folder.",
         "dimensions": {
           "h": 100,
-          "w": 140
+          "w": 130
         },
         "imageSize": {
           "h": 1548,
           "w": 2001
-        }
+        },
+        "blurHash": "LAAB6Kt7MIa#_3s:MwWCqsoLyEkB"
       },
       {
         "url": "objectui11.webp",
@@ -301,7 +321,8 @@
         "imageSize": {
           "h": 1500,
           "w": 778
-        }
+        },
+        "blurHash": "LeGI+Wxuad%L-payWBay00of%Mof"
       },
       {
         "url": "objectui12.webp",
@@ -314,7 +335,8 @@
         "imageSize": {
           "h": 1500,
           "w": 778
-        }
+        },
+        "blurHash": "L#KL5WxuM{xtRifRofay00of%Lj["
       },
       {
         "url": "objectui13.webp",
@@ -327,7 +349,8 @@
         "imageSize": {
           "h": 1500,
           "w": 778
-        }
+        },
+        "blurHash": "LYF$qz%Madxu-;j[WBWB4Ts:%Mof"
       },
       {
         "url": "objectui14.webp",
@@ -340,7 +363,8 @@
         "imageSize": {
           "h": 1500,
           "w": 778
-        }
+        },
+        "blurHash": "LfG8=vxuNGxux[ayWBay0Kof-pj]"
       }
     ]
   },
@@ -365,6 +389,7 @@
     "tools": "React.js, React Router, Material-UI, SCSS, Node/Express.js, Docker, Nginx, Firebase Auth, Firestore NoSQL, GCP Compute Engine, GCP Cloud Functions, GCP Cloud Scheduler, Twilio Sendgrid",
     "ideaFeatures": "News can be overwhelming and it can be easy to miss certain stories or topics that are important to us. This portal allows you to view synopses of articles and subscribe to topics that matter to you. Each morning, you'll receive an email with updates on the topics you've subscribed to, so you can stay informed on the issues that are important to you.",
     "featuresInclude": [
+      "A daily email with the latest stories related to topics the user/subscriber picks.",
       "Email authentication.",
       "Browse articles by section/subsection.",
       "Ability to pause subscription.",
@@ -377,13 +402,94 @@
     ],
     "productImages": [
       {
-        "url": "unsequenced_1.png",
-        "alt": "This is the main/landing screen",
-        "imageDesc": "This is the main/landing screen",
+        "url": "theTimesPage1.webp",
+        "alt": "As an aggregator, we're looking to give an easy-to-digest view of the news.",
+        "imageDesc": "As an aggregator, we're looking to give an easy-to-digest view of the news.",
         "dimensions": {
-          "h": 250,
-          "w": 125
-        }
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LfN,uUWBIVay9Fj[oLf601j[t7j["
+      },
+      {
+        "url": "theTimesPage2.webp",
+        "alt": "You'll be prompted to log in if you want to add topics to your email subscription.",
+        "imageDesc": "You'll be prompted to log in if you want to add topics to your email subscription.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LWGbq~a|00j[M{j[t7fP9Fj[?bj["
+      },
+      {
+        "url": "theTimesPage3.webp",
+        "alt": "Once logged in, you'll be able to add topics to your email subscription.",
+        "imageDesc": "Once logged in, you'll be able to add topics to your email subscription.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LVGu%cj[4Tj[Iofkt7f600j[_3j@"
+      },
+      {
+        "url": "theTimesPage4.webp",
+        "alt": "From the account info page you can manage your subscriptions and email/login info.",
+        "imageDesc": "From the account info page you can manage your subscriptions and email/login info.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LiP%R^j[IUa#9Fj[ofay00j[offi"
+      },
+      {
+        "url": "theTimesPage5.webp",
+        "alt": "The mobile view retains all of the features, but in a more compact form-factor.",
+        "imageDesc": "The mobile view retains all of the features, but in a more compact form-factor.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "blurHash": "LWNmp7bc9Z-;4nfPxuWB0Kt7xuj["
+      },
+      {
+        "url": "theTimesPage6.webp",
+        "alt": "The simplicity of interface allows easy use throughout screen sizes.",
+        "imageDesc": "The simplicity of interface allows easy use throughout screen sizes.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "blurHash": "LdNAn@xu01%LIUayoyay01of-:of"
+      },
+      {
+        "url": "theTimesPage7.webp",
+        "alt": "The simplicity of interface allows easy use throughout screen sizes.",
+        "imageDesc": "The simplicity of interface allows easy use throughout screen sizes.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "blurHash": "LkLENStRDj%MIUayofay00of-;fj"
+      },
+      {
+        "url": "theTimesPage8.webp",
+        "alt": "On mobile, the subscription management and account info are broken into separate tabs.",
+        "imageDesc": "On mobile, the subscription management and account info are broken into separate tabs.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "blurHash": "LxNdREt7Myxuxuayayay00ofxufj"
+      },
+      {
+        "url": "theTimesPageEmail.webp",
+        "alt": "Every morning, you will receive an email with the latest stories related to your subscribed topics.",
+        "imageDesc": "Every morning, you will receive an email with the latest stories related to your subscribed topics.",
+        "dimensions": {
+          "h": 100,
+          "w": 80
+        },
+        "blurHash": "LOSFz]M{?w%Lx]j[RPWBtRj@V?WB"
       }
     ]
   },
@@ -424,6 +530,148 @@
       "Updating the images during the build process to enable the use of blurHash.",
       "Debugging compilation errors related to SWC.",
       "Integrating the CMS functionality to allow for easy management of portfolio content."
+    ],
+    "productImages": [
+      {
+        "url": "fineArt1.webp",
+        "alt": "A simple presentation site for artworks\u2014currently displaying monochromatic works.",
+        "imageDesc": "A simple presentation site for artworks\u2014currently displaying monochromatic works.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LEMH3|WBNGofxaofRjRj01fkWBt7"
+      },
+      {
+        "url": "fineArt2.webp",
+        "alt": "A full-sized picture from the monochromatic gallery.",
+        "imageDesc": "A full-sized picture from the monochromatic gallery.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LkL4mHWB~pt7RjayRjofIVkBM{WB"
+      },
+      {
+        "url": "fineArt3.webp",
+        "alt": "A simple presentation site for artworks\u2014currently displaying polychromatic works.",
+        "imageDesc": "A simple presentation site for artworks\u2014currently displaying polychromatic works.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LIM7V_WXNKW=%MWCRPoe0Ls:jYs."
+      },
+      {
+        "url": "fineArt4.webp",
+        "alt": "A full-sized picture from the polychromatic gallery.",
+        "imageDesc": "A full-sized picture from the polychromatic gallery.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LrKd#lfk~qj[M|fQWBfQNGj[IUfk"
+      },
+      {
+        "url": "fineArt5.webp",
+        "alt": "A simple, uncomplicated, well-styled about page.",
+        "imageDesc": "A simple, uncomplicated, well-styled about page.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LZQJAej[D*j[D*fQoLfQ01j[offQ"
+      },
+      {
+        "url": "fineArt6.webp",
+        "alt": "The mobile view is also easily navigated and designed for simplicity.",
+        "imageDesc": "The mobile view is also easily navigated and designed for simplicity.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "blurHash": "LDLNun-;^+~q?at7R*D*~WxuD%t7"
+      },
+      {
+        "url": "fineArt7.webp",
+        "alt": "The mobile view is also easily navigated and designed for simplicity.",
+        "imageDesc": "The mobile view is also easily navigated and designed for simplicity.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "blurHash": "LGLE1i-=?w_2%hn$WANH_4t7E0s;"
+      },
+      {
+        "url": "fineArt8.webp",
+        "alt": "The mobile view is also easily navigated and designed for simplicity.",
+        "imageDesc": "The mobile view is also easily navigated and designed for simplicity.",
+        "dimensions": {
+          "h": 100,
+          "w": 50
+        },
+        "blurHash": "LMPskk-;01-;NGWBt7WB9Gt7xuof"
+      },
+      {
+        "url": "fineArt9.webp",
+        "alt": "There is also a CMS where images can be uploaded, scaled and tagged.",
+        "imageDesc": "There is also a CMS where images can be uploaded, scaled and tagged.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LXPGdBIU9F%NITt7ogRj00t7t8Rj"
+      },
+      {
+        "url": "fineArt10.webp",
+        "alt": "From there, we can edit pre-existing image crop and data.",
+        "imageDesc": "From there, we can edit pre-existing image crop and data.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LHN^Vbj[^+of01fRxuay4oj[4nj["
+      },
+      {
+        "url": "fineArt11.webp",
+        "alt": "We can drag to re-order the sequence of images.",
+        "imageDesc": "We can drag to re-order the sequence of images.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LcO:-6IUD$%MITt7ogRj00oft7WA"
+      },
+      {
+        "url": "fineArt12.webp",
+        "alt": "We can also view only the monochromatic images.",
+        "imageDesc": "We can also view only the monochromatic images.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LcO:-6IUD$%MITt7ogRj00oft7Rj"
+      },
+      {
+        "url": "fineArt13.webp",
+        "alt": "We can view only the polychromatic images.",
+        "imageDesc": "We can view only the polychromatic images.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LcO:-6IUDi%MITt7ozRj00t7t7Rj"
+      },
+      {
+        "url": "fineArt14.webp",
+        "alt": "Most importantly, we can add images; choose a thumbnail crop, and add text info.",
+        "imageDesc": "Most importantly, we can add images; choose a thumbnail crop, and add text info.",
+        "dimensions": {
+          "h": 100,
+          "w": 130
+        },
+        "blurHash": "LMNm+nWB-oWB4nj[tQay4Tay9Hj["
+      }
     ]
   }
 ]
