@@ -29,8 +29,7 @@ export default function LightboxURL({
     // Here, we're initiating our IntersectionObserver for the lightbox contents
     const options = {
       root: null,
-      rootMargin: '-20px',
-      // thresholds: [0],
+      rootMargin: '-60px',
     };
     const observer = new IntersectionObserver(intersectCallback, options);
 
@@ -46,7 +45,7 @@ export default function LightboxURL({
   }, []);
 
   function intersectCallback(entries: IntersectionObserverEntry[]) {
-    // the length test is to filter out the initial triggering of the callback
+    // the length test is to filter-out the initial triggering of the callback
     // in which `entries` is all the observed elements
     if (entries.length === 1) {
       if (entries[0].isIntersecting) {
@@ -174,9 +173,9 @@ export default function LightboxURL({
           ref={imageUL}
           style={{ padding: imageBoxPadding }}
         >
-          {imageList.map(({ alt, url, imageDesc, dimensions }) => (
+          {imageList.map(({ alt, url, imageDesc, dimensions, blurDataURL }, index) => (
             <li
-              key={`${alt}-main-image`}
+              key={`${alt}-main-image-${index}`}
               className={'image_container--item'}
             >
               <div
@@ -186,6 +185,8 @@ export default function LightboxURL({
                 <Image
                   src={require(`/public/images/product_images/${url}`)}
                   alt={`${alt} image`}
+                  blurDataURL={blurDataURL}
+                  placeholder='blur'
                   style={{ objectFit: 'scale-down', height: 'inherit', width: 'unset' }}
                 />
                 <div className={`image-description ${nextFontAccess}`} style={textDescriptionStyle}>
@@ -199,18 +200,21 @@ export default function LightboxURL({
         </ul>
       </div>
       <div className="main_thumbnail_container">
-        <ul className="thumbnail_container">
-          {imageList.map(({ alt, url, dimensions }, index) => (
+        <ul key={'ul-thumb'} className="thumbnail_container">
+          {imageList.map(({ alt, url, dimensions, blurDataURL }, index) => (
             <li
               style={{ height: dimensions.h, width: dimensions.w }}
               role='button'
-              key={`${alt}-thumb`}
+              key={`${alt}-${index}`}
               onClick={() => handleOnThumbClick(index)}
               className={`thumbnail_container--item-image_${index}`}
             >
               <Image
                 fill
-                src={require(`/public/images/product_images/${url}`)}
+                key={`${index}-thumb`}
+                placeholder='blur'
+                blurDataURL={blurDataURL}
+                src={`/images/product_images/${url}`}
                 alt={`${alt} thumbnail`} style={{ ...thumbnailStyle, objectFit: 'contain' }}
                 sizes={`(max-width: ${dimensions.w}px) 100vw`}
               />

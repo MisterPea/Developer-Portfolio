@@ -5,7 +5,6 @@ import { FaGithub } from 'react-icons/fa';
 import { RobotoSerif, roboto } from '../../helpers/fonts';
 import { motion } from 'framer-motion';
 import LightboxURL from '../../components/Lightbox/LightboxURL';
-import { useState } from 'react';
 
 export default function Project({ projectData }: { projectData: ProjectDataProps; }) {
   const { title, tools, subTitle, links, ideaFeatures, featuresInclude, challenges, productImages } = projectData;

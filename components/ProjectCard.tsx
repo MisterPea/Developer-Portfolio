@@ -25,7 +25,7 @@ export default function ProjectCard({ title, topDesc, projectSlug, image }: Card
           <p className={roboto.className}>{topDesc}</p>
         </div>
         <div className="project_card--image">
-          <Image src={require(`../public/images/${image}`)} alt={`${title} project image.`} style={{ objectFit: 'scale-down', width: '100%', height: '100%' }} />
+          <Image priority src={require(`../public/images/${image}`)} alt={`${title} project image.`} style={{ objectFit: 'scale-down', width: '100%', height: '100%' }} />
         </div>
       </div>
     </Link>

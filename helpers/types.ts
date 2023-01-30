@@ -15,6 +15,7 @@ type ProductImage = {
   alt: string;
   imageText?: string;
   dimensions: ImageDimensions;
+  blurDataURL: string;
 };
 
 export interface ProjectDataProps {
@@ -75,7 +76,7 @@ export interface ImageURLObject {
   imageDesc?: string;
   alt: string;
   dimensions: ImageDimensions;
-  imageSize: ImageDimensions;
+  blurDataURL: string;
 }
 
 export interface LightboxURLProps {

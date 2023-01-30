@@ -1,4 +1,14 @@
 @import "./mixins.scss";
+
+@keyframes fade-in-image {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /// THUMBS
 .thumbnail_container {
   display: flex;
@@ -12,11 +22,18 @@
     list-style: none;
     position: relative;
     cursor: pointer;
-    margin: 12px;
+    margin: 12px 10px;
     @include tablet {
       margin: 16px;
     }
   }
+}
+
+img {
+
+    animation: fade-in-image 2000ms ease-in-out;
+  transition: all 0.7s ease-in-out;
+  border-radius: 3px;
 }
 /// MAIN IMAGE CONTAINER
 
@@ -139,7 +156,7 @@
     scroll-snap-align: center;
     opacity: 0;
     transition: opacity 400ms ease-in-out;
-    transition-delay: 200ms;
+    transition-delay: 260ms;
     &.in-frame {
       opacity: 1;
     }
@@ -159,6 +176,9 @@
       margin: 0 auto;
       width: 75%;
       opacity: 0;
+      color: var(--text-black);
+      transition: opacity 400ms ease-in-out;
+      transition-delay: 300ms;
       &.in-frame {
         opacity: 1;
       }
