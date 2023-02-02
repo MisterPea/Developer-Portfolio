@@ -40,7 +40,8 @@ class CreateBlurHash:
                 sys.stdout.flush()
                 time.sleep(0.25)
 
-    def blur_data_to_base64(self, blur_hash,
+    def blur_data_to_base64(self,
+                            blur_hash,
                             width_ratio,
                             height_ratio,
                             size_multiple=40):
@@ -75,16 +76,24 @@ class CreateBlurHash:
 
         Returns: data url with base64 blur data
         """
-        with Image.open(self.PATH_TO_IMAGE +
-                        image_url).convert('RGB') as image_file:
+        with Image.open(image_url).convert('RGB') as image_file:
             with BytesIO() as temp_file:
                 image_file.save(temp_file, format='JPEG')
                 temp_file.seek(0)
                 blur_hash = blurhash.encode(temp_file,
                                             x_components=4,
                                             y_components=3)
-                return self.blur_data_to_base64(blur_hash, _w, _h,)
-                
+                return self.blur_data_to_base64(
+                    blur_hash,
+                    _w,
+                    _h,
+                )
+
+    def get_image_size(self, image_url):
+        """Retrieves image size"""
+        with Image.open(image_url) as open_image:
+            width, height = open_image.size
+            return {"w": width, "h": height}
 
     def make_blur_hash(self):
         """
@@ -100,12 +109,17 @@ class CreateBlurHash:
                 self.curr_proj += 1
                 self.curr_img = 0
                 for image in project['productImages']:
+                     # Convenience var to hold url
+                    image_url = self.PATH_TO_IMAGE + image['url']
                     self.img_tot = len(project['productImages'])
                     self.curr_img += 1
-                    height = image['dimensions']['h']
-                    width = image['dimensions']['w']
-                    hw_ratio = self.find_ratio(height, width)
-                    blur_data = self.get_blur_hash(image['url'], hw_ratio['h'], hw_ratio['w'])
+                    image_size = self.get_image_size(image_url)
+                    # we're writing the current size of the image to the file.
+                    image['dimensions']['h'] = image_size['h']
+                    image['dimensions']['w'] = image_size['w']
+                    hw_ratio = self.find_ratio(image_size['h'], image_size['w'])
+                    blur_data = self.get_blur_hash(image_url, hw_ratio['h'],
+                                                   hw_ratio['w'])
                     image['blurDataURL'] = blur_data
 
         with open(self.PATH, "w", encoding='utf8') as file:

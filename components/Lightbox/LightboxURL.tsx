@@ -4,6 +4,7 @@ import { LightboxURLProps } from '../../helpers/types';
 import { TfiClose, TfiAngleLeft, TfiAngleRight } from 'react-icons/tfi';
 import { SlClose } from 'react-icons/sl';
 import { SyntheticBaseEvent } from '../../helpers/types';
+import ImageFrame from '../ImageFrame';
 
 export default function LightboxURL({
   imageList,
@@ -70,7 +71,12 @@ export default function LightboxURL({
     }
   }
 
-  // // FUNCTIONS TO HANDLE THE ALTERING OF z-index while switching images //
+  // FUNCTIONS TO HANDLE THE ALTERING OF z-index while switching images //
+  // The idea is that when we see an opacity change we switch the z-index.
+  // The first change that also happens is handleOnThumbClick where we set the
+  // display to 'block', which allows us to have an opacity change. On the way
+  // out, we set the display to 'none' after we see the opacity on the image-description 
+  // stop, because that element is the last to fade out due to transition-delay.
   function activeZIndex(e: TransitionEvent) {
     if (e.propertyName === 'opacity') {
       if (lightboxDiv.current?.classList.contains('active')) {
@@ -83,8 +89,12 @@ export default function LightboxURL({
     if (e.propertyName === 'opacity') {
       if (!lightboxDiv.current?.classList.contains('active')) {
         (lightboxDiv.current as HTMLElement).style.zIndex = '-1';
+        if ((e.target as HTMLElement).classList[0] === 'image-description') {
+          (lightboxDiv.current as HTMLElement).style.display = 'none';
+        }
       }
     }
+
   }
 
   function handleKeyDown(e: SyntheticBaseEvent) {
@@ -127,6 +137,7 @@ export default function LightboxURL({
 
   // Initial click on a thumbnail
   function handleOnThumbClick(imageIndex: number) {
+    (lightboxDiv.current as HTMLElement).style.display = 'block';
     document.querySelector('html')?.classList.add('no-scroll');
     setCurrentImage(imageIndex);
     imageArray.current[imageIndex].scrollIntoView({ behavior: 'instant' });
@@ -180,18 +191,16 @@ export default function LightboxURL({
             >
               <div
                 className='image_container--image_wrap-outer'
-                style={dimensions.h > dimensions.w ? { padding: '20px' } : { padding: '0px' }}
               >
-                <Image
-                  src={require(`/public/images/product_images/${url}`)}
-                  alt={`${alt} image`}
-                  blurDataURL={blurDataURL}
-                  placeholder='blur'
-                  style={{ objectFit: 'scale-down', height: 'inherit', width: 'unset' }}
+                <ImageFrame
+                  imageURL={`/images/product_images/${url}`}
+                  imgAlt={alt}
+                  imgSize={{ h: dimensions.h, w: dimensions.w }}
+                  blurDataUrl={blurDataURL}
                 />
-                <div className={`image-description ${nextFontAccess}`} style={textDescriptionStyle}>
-                  <p>{imageDesc}</p></div>
               </div>
+              <div className={`image-description ${nextFontAccess}`} style={textDescriptionStyle}>
+                <p>{imageDesc}</p></div>
             </li>
           ))}
           <button onClick={closeOverlay} className='mobile-close'>
@@ -203,20 +212,17 @@ export default function LightboxURL({
         <ul key={'ul-thumb'} className="thumbnail_container">
           {imageList.map(({ alt, url, dimensions, blurDataURL }, index) => (
             <li
-              style={{ height: dimensions.h, width: dimensions.w }}
               role='button'
               key={`${alt}-${index}`}
               onClick={() => handleOnThumbClick(index)}
               className={`thumbnail_container--item-image_${index}`}
             >
-              <Image
-                fill
-                key={`${index}-thumb`}
-                placeholder='blur'
-                blurDataURL={blurDataURL}
-                src={`/images/product_images/${url}`}
-                alt={`${alt} thumbnail`} style={{ ...thumbnailStyle, objectFit: 'contain' }}
-                sizes={`(max-width: ${dimensions.w}px) 100vw`}
+              <ImageFrame
+                imageURL={`/images/product_images/${url}`}
+                imgAlt={alt}
+                imgSize={{ h: dimensions.h, w: dimensions.w }}
+                blurDataUrl={blurDataURL}
+                transitionDelay={`${(index * 60)}ms`}
               />
             </li>
           ))}
