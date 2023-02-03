@@ -3,6 +3,7 @@ import math
 import base64
 from io import BytesIO
 import sys
+import os
 import time
 from threading import Thread, Event
 import blurhash
@@ -109,17 +110,25 @@ class CreateBlurHash:
                 self.curr_proj += 1
                 self.curr_img = 0
                 for image in project['productImages']:
-                     # Convenience var to hold url
-                    image_url = self.PATH_TO_IMAGE + image['url']
+                    # Convenience var to hold url
+                    # image_url = self.PATH_TO_IMAGE + image['url']
+                    thumb_url = self.PATH_TO_IMAGE + image['thumb_1x']
+                    main_url = self.PATH_TO_IMAGE + image['url_1x']
                     self.img_tot = len(project['productImages'])
                     self.curr_img += 1
-                    image_size = self.get_image_size(image_url)
+
+                    thumb_size = self.get_image_size(thumb_url)
+                    main_size = self.get_image_size(main_url)
                     # we're writing the current size of the image to the file.
-                    image['dimensions']['h'] = image_size['h']
-                    image['dimensions']['w'] = image_size['w']
-                    hw_ratio = self.find_ratio(image_size['h'], image_size['w'])
-                    blur_data = self.get_blur_hash(image_url, hw_ratio['h'],
-                                                   hw_ratio['w'])
+
+                    image['thumbDimensions']['h'] = thumb_size['h']
+                    image['thumbDimensions']['w'] = thumb_size['w']
+
+                    image['dimensions']['h'] = main_size['h']
+                    image['dimensions']['w'] = main_size['w']
+
+                    hw_ratio = self.find_ratio(main_size['h'], main_size['w'])
+                    blur_data = self.get_blur_hash(main_url, hw_ratio['h'],hw_ratio['w'])
                     image['blurDataURL'] = blur_data
 
         with open(self.PATH, "w", encoding='utf8') as file:
@@ -127,6 +136,27 @@ class CreateBlurHash:
         complete.set()
         thread.join()
 
+    def resize_images(self, max_thumb_height, max_image_height):
+        """Resize images in a folder based upon"""
+        folder = os.listdir(self.PATH_TO_IMAGE)
+        for original_image in folder:
+            if os.path.isfile(self.PATH_TO_IMAGE + original_image) and original_image != '.DS_Store':
+                print(original_image)
+                with Image.open(self.PATH_TO_IMAGE + original_image) as img:
+                    width, height = img.size
+                    width_ratio = width/height
+                    filename, ext = os.path.splitext(self.PATH_TO_IMAGE + original_image)
+                    thumb_resize_1x = img.resize((math.trunc(width_ratio * max_thumb_height), max_thumb_height), Image.LANCZOS)
+                    thumb_resize_1x.save(filename + '_thumb_1x.webp','webp',exact=True, quality=95, lossless=True, method=6)
+                    thumb_resize_2x = img.resize((math.trunc(width_ratio * max_thumb_height)*2, max_thumb_height*2), Image.LANCZOS)
+                    thumb_resize_2x.save(filename + '_thumb_2x.webp','webp',exact=True, quality=95, lossless=True, method=6)
+                    main_resize_1x = img.resize((math.trunc(width_ratio * max_image_height), max_image_height), Image.LANCZOS)
+                    main_resize_1x.save(filename + '_main_1x.webp','webp',exact=True, quality=95, lossless=True, method=6)
+                    main_resize_2x = img.resize((math.trunc(width_ratio * max_image_height)*2, max_image_height*2), Image.LANCZOS)
+                    main_resize_2x.save(filename + '_main_2x.webp','webp',exact=True, quality=95, lossless=True, method=6)
+
+
 
 BLUR = CreateBlurHash()
 BLUR.make_blur_hash()
+# BLUR.resize_images(200,800)
