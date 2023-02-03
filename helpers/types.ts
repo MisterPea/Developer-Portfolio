@@ -10,13 +10,17 @@ type Links = {
   icon: string;
 };
 
-type ProductImage = {
-  url: string;
+export interface ImageURLObject {
+  imageDesc?: string;
   alt: string;
-  imageText?: string;
   dimensions: ImageDimensions;
+  thumbDimensions: ImageDimensions;
   blurDataURL: string;
-};
+  thumb_1x: string;
+  thumb_2x: string;
+  url_1x: string;
+  url_2x: string;
+}
 
 export interface ProjectDataProps {
   title: string;
@@ -26,7 +30,7 @@ export interface ProjectDataProps {
   ideaFeatures: string;
   featuresInclude: string[];
   challenges: string[];
-  productImages: ProductImage[];
+  productImages: ImageURLObject[];
 }
 
 import { NextFont } from '@next/font/dist/types';
@@ -69,14 +73,6 @@ export interface LightboxProps {
   thumbnailStyle?: CSS.Properties;
   textDescriptionStyle?: CSS.Properties;
   nextFontAccess?: NextFont;
-}
-
-export interface ImageURLObject {
-  url: string;
-  imageDesc?: string;
-  alt: string;
-  dimensions: ImageDimensions;
-  blurDataURL: string;
 }
 
 export interface LightboxURLProps {

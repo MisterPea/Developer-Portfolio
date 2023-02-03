@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-import Image from 'next/image';
 import { LightboxURLProps } from '../../helpers/types';
 import { TfiClose, TfiAngleLeft, TfiAngleRight } from 'react-icons/tfi';
 import { SlClose } from 'react-icons/sl';
@@ -89,9 +88,6 @@ export default function LightboxURL({
     if (e.propertyName === 'opacity') {
       if (!lightboxDiv.current?.classList.contains('active')) {
         (lightboxDiv.current as HTMLElement).style.zIndex = '-1';
-        if ((e.target as HTMLElement).classList[0] === 'image-description') {
-          (lightboxDiv.current as HTMLElement).style.display = 'none';
-        }
       }
     }
 
@@ -137,7 +133,6 @@ export default function LightboxURL({
 
   // Initial click on a thumbnail
   function handleOnThumbClick(imageIndex: number) {
-    (lightboxDiv.current as HTMLElement).style.display = 'block';
     document.querySelector('html')?.classList.add('no-scroll');
     setCurrentImage(imageIndex);
     imageArray.current[imageIndex].scrollIntoView({ behavior: 'instant' });
@@ -184,7 +179,7 @@ export default function LightboxURL({
           ref={imageUL}
           style={{ padding: imageBoxPadding }}
         >
-          {imageList.map(({ alt, url, imageDesc, dimensions, blurDataURL }, index) => (
+          {imageList.map(({ alt, url_1x, url_2x, imageDesc, dimensions, blurDataURL }, index) => (
             <li
               key={`${alt}-main-image-${index}`}
               className={'image_container--item'}
@@ -193,10 +188,12 @@ export default function LightboxURL({
                 className='image_container--image_wrap-outer'
               >
                 <ImageFrame
-                  imageURL={`/images/product_images/${url}`}
+                  imageURL_1x={`/images/product_images/${url_1x}`}
+                  imageURL_2x={`/images/product_images/${url_2x}`}
                   imgAlt={alt}
                   imgSize={{ h: dimensions.h, w: dimensions.w }}
                   blurDataUrl={blurDataURL}
+                  loading='lazy'
                 />
               </div>
               <div className={`image-description ${nextFontAccess}`} style={textDescriptionStyle}>
@@ -210,7 +207,7 @@ export default function LightboxURL({
       </div>
       <div className="main_thumbnail_container">
         <ul key={'ul-thumb'} className="thumbnail_container">
-          {imageList.map(({ alt, url, dimensions, blurDataURL }, index) => (
+          {imageList.map(({ alt, thumb_1x, thumb_2x, thumbDimensions, blurDataURL }, index) => (
             <li
               role='button'
               key={`${alt}-${index}`}
@@ -218,11 +215,13 @@ export default function LightboxURL({
               className={`thumbnail_container--item-image_${index}`}
             >
               <ImageFrame
-                imageURL={`/images/product_images/${url}`}
+                imageURL_1x={`/images/product_images/${thumb_1x}`}
+                imageURL_2x={`/images/product_images/${thumb_2x}`}
                 imgAlt={alt}
-                imgSize={{ h: dimensions.h, w: dimensions.w }}
+                imgSize={{ h: thumbDimensions.h, w: thumbDimensions.w }}
                 blurDataUrl={blurDataURL}
                 transitionDelay={`${(index * 60)}ms`}
+                loading='lazy'
               />
             </li>
           ))}

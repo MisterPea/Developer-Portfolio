@@ -31,7 +31,6 @@ export default function Header() {
     // But it works: if we remove the bigger title from the DOM the
     // smaller one auto-magically deploys.
     const displayLargeText = entry[0].isIntersecting;
-    console.log(entry[0], '<><>', route.asPath);
     if (displayLargeText) {
       deployRetractHeader('large');
     } else {
