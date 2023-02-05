@@ -212,7 +212,7 @@ export default function LightboxURL({
               role='button'
               key={`${alt}-${index}`}
               onClick={() => handleOnThumbClick(index)}
-              className={`thumbnail_container--item-image_${index}`}
+              className={'thumbnail_container--item-image'}
             >
               <ImageFrame
                 imageURL_1x={`/images/product_images/${thumb_1x}`}

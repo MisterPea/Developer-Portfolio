@@ -11,16 +11,18 @@ type ImgSizeType = {
 };
 
 interface ImageFrameProps {
-  imageURL: ImageType | string;
+  imageURL_1x: ImageType | string;
+  imageURL_2x: ImageType | string;
   imgAlt: string;
   imgSize: ImgSizeType;
   blurDataUrl: string;
   transitionDelay?: string;
+  loading?: 'lazy' | 'eager';
 }
 
 import { useEffect, useRef } from 'react';
 
-export default function ImageFrame({ imageURL, imgAlt, imgSize, blurDataUrl, transitionDelay = '0' }: ImageFrameProps) {
+export default function ImageFrame({ imageURL_1x, imageURL_2x, imgAlt, imgSize, blurDataUrl, transitionDelay = '0', loading = 'lazy' }: ImageFrameProps) {
   const loadingImage = useRef<HTMLImageElement>(null);
   const imagesContainer = useRef<HTMLDivElement>(null);
   const placeholderImage = useRef<HTMLImageElement>(null);
@@ -33,43 +35,73 @@ export default function ImageFrame({ imageURL, imgAlt, imgSize, blurDataUrl, tra
     }
 
     loadingImage.current?.addEventListener('load', executeLoadImage);
+    placeholderImage.current?.addEventListener('transitionend', hidePlaceholder);
 
     return () => {
       loadingImagePointer?.removeEventListener('load', executeLoadImage);
     };
   }, []);
 
+  useEffect(() => {
+    const w = window.innerWidth;
+    console.log(w)
+  },[])
+
   function executeLoadImage() {
     if (loadingImage.current && placeholderImage.current && imagesContainer.current) {
-      loadingImage.current.style.opacity = '1';
-      placeholderImage.current.style.opacity = '0';
+      // loadingImage.current.style.opacity = '1';
+      // placeholderImage.current.style.opacity = '0';
       imagesContainer.current.style.filter = 'blur(0)';
     }
   }
 
+  function hidePlaceholder() {
+    if (placeholderImage.current) {
+      placeholderImage.current.style.display = 'none';
+    }
+  }
 
   return (
     <div
       className="image_frame--container"
-      style={{ filter: 'blur(5px)', transitionDelay: transitionDelay }}
+      // style={{ transitionDelay: transitionDelay }}
       ref={imagesContainer}
     >
       <img
-        className='image_frame--image placeholder-image'
-        ref={placeholderImage}
+        className='image_frame--image'
+        ref={loadingImage}
         src={blurDataUrl}
-        alt={`placeholder for ${imgAlt}`}
-        style={{ 'borderRadius': '5%', position: 'absolute', zIndex: 3, left: 0, top: 0, width: '100%', height: '100%', transitionDelay: transitionDelay }}
-      />
-      <img
-        className='image_frame--image main-image'
-        src={imageURL} alt={imgAlt}
         width={imgSize.w}
         height={imgSize.h}
-        ref={loadingImage}
-        loading='lazy'
-        style={{ opacity: 0, transitionDelay: transitionDelay }}
+        // srcSet={`${imageURL_1x} 1x, ${imageURL_2x} 2x`}
+        alt={`placeholder for ${imgAlt}`}
+        style={{
+          borderRadius: '5px',
+          // position: 'absolute',
+          // zIndex: 3,
+          // height:'100%',
+          // width:'100%',
+          // left: 0,
+          // top: 0,
+          // transitionDelay: transitionDelay,
+          // backgroundImage: `url(${blurDataUrl})`,
+          // backgroundRepeat: 'no-repeat',
+          // backgroundSize: 'cover'
+        }}
       />
     </div>
+    //   <img
+    //     className='image_frame--image main-image'
+    //     srcSet={`${imageURL_1x} 1x, ${imageURL_2x} 2x`}
+    //     src={`${imageURL_1x}`}
+    //     alt={imgAlt}
+    //     width={imgSize.w}
+    //     height={imgSize.h}
+    //     ref={loadingImage}
+    //     loading={loading}
+    //     decoding='async'
+    //     style={{ opacity: 0, transitionDelay: transitionDelay, zIndex: 4 }}
+    //   /> 
+    // </div >
   );
 }
