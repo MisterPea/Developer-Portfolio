@@ -62,11 +62,6 @@ export default function ImageFrame({ imageURL_1x, imageURL_2x, imgAlt, imgSize, 
   }
 
   return (
-    <div
-      className="image_frame--container"
-      // style={{ transitionDelay: transitionDelay }}
-      ref={imagesContainer}
-    >
       <img
         className='image_frame--image'
         ref={loadingImage}
@@ -89,7 +84,6 @@ export default function ImageFrame({ imageURL_1x, imageURL_2x, imgAlt, imgSize, 
           // backgroundSize: 'cover'
         }}
       />
-    </div>
     //   <img
     //     className='image_frame--image main-image'
     //     srcSet={`${imageURL_1x} 1x, ${imageURL_2x} 2x`}

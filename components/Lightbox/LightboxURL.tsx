@@ -44,6 +44,11 @@ export default function LightboxURL({
     };
   }, []);
 
+  useEffect(() => {
+    const x = window.innerWidth;
+    console.log(x)
+  },[])
+
   function intersectCallback(entries: IntersectionObserverEntry[]) {
     // the length test is to filter-out the initial triggering of the callback
     // in which `entries` is all the observed elements
