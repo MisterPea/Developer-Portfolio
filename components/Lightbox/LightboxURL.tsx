@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useRef } from 'react';
 import { LightboxURLProps } from '../../helpers/types';
 import { TfiClose, TfiAngleLeft, TfiAngleRight } from 'react-icons/tfi';
@@ -18,6 +19,7 @@ export default function LightboxURL({
   const imageArray = useRef<any>([]);
   const lightboxDiv = useRef<HTMLDivElement>(null);
   const imageUL = useRef<HTMLUListElement>(null);
+  const [isChromeBrowser, setIsChromeBrowser] = useState<boolean>(false);
 
   useEffect(() => {
     imageArray.current = lightboxDiv.current!.querySelectorAll("[class^='image_container--item']");
@@ -29,8 +31,8 @@ export default function LightboxURL({
     // Here, we're initiating our IntersectionObserver for the lightbox contents
     const options = {
       root: null,
-      rootMargin: '-50px',
-      threshold: 0.8,
+      rootMargin: '-150px',
+      threshold: 0.8,  
     };
     const observer = new IntersectionObserver(intersectCallback, options);
 
@@ -39,11 +41,22 @@ export default function LightboxURL({
         observer.observe(image);
       }
     }
+
+    // we need to check to see if chrome is being used, if so we need to disable
+    // scroll-snap because of a persistent browser bug.
+    const userAgent = window.navigator.userAgent;
+    const chromeRegex = /\bChrome\b(?!.*Mobile)/g;
+    if (userAgent.match(chromeRegex) && !isChromeBrowser) {
+      setIsChromeBrowser(true);
+    }
+
     return () => {
       removeEventListener('transitionstart', activeZIndex);
       removeEventListener('transitionend', inactiveZIndex);
+      observer.disconnect()
     };
   }, []);
+
 
   function intersectCallback(entries: IntersectionObserverEntry[]) {
     // the length test is to filter-out the initial triggering of the callback
@@ -176,7 +189,9 @@ export default function LightboxURL({
           </button>
         </span>
         <ul
-          className="image_container"
+          // we need to check to see if chrome is being used, if so we need to disable
+          // scroll-snap because of a persistent browser bug.
+          className={`image_container${isChromeBrowser ? ' chrome' : ''}`}
           ref={imageUL}
           style={{ padding: imageBoxPadding }}
         >

@@ -145,48 +145,43 @@
 
 .image_container {
   display: flex;
-  height: 100vh;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  // scroll-behavior: smooth;
-  padding: 10px;
+  &.chrome {
+    overflow-x: hidden;
+  }
   &::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */
   }
   &--item {
+    flex:1;
     list-style: none;
     scroll-snap-align: center;
-    // scroll-snap-align: start;
-    // scroll-snap-stop: always;
-    background-color: aqua;
+    scroll-snap-stop: always;
     opacity: 0;
     transition: opacity 400ms ease-in-out;
     transition-delay: 230ms;
-    // margin: 0 20vw;
+    width: 100%;
     &.in-frame {
       opacity: 1;
     }
   }
 
   &--image_wrap-outer {
-    padding: 20px 20px 0;
+    padding: 20px 30px 0;
     max-height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     filter: blur(40px);
     transition: filter 500ms ease-in-out;
-    position: relative;
     img {
-
       max-height: 80vh;
-      // width: 100%;
-      height: 100%;
       max-width: 100%;
       @include desktop {
         height: 800px;
