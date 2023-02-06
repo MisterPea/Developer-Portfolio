@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 type JPG = `${string}.jpg` | `${string}.jpg`;
 type WEBP = `${string}.webp`;
@@ -24,78 +25,62 @@ import { useEffect, useRef } from 'react';
 
 export default function ImageFrame({ imageURL_1x, imageURL_2x, imgAlt, imgSize, blurDataUrl, transitionDelay = '0', loading = 'lazy' }: ImageFrameProps) {
   const loadingImage = useRef<HTMLImageElement>(null);
-  const imagesContainer = useRef<HTMLDivElement>(null);
-  const placeholderImage = useRef<HTMLImageElement>(null);
+
 
   useEffect(() => {
-    const loadingImagePointer = loadingImage.current;
-
-    if (loadingImage.current?.complete) {
-      executeLoadImage();
-    }
-
-    loadingImage.current?.addEventListener('load', executeLoadImage);
-    placeholderImage.current?.addEventListener('transitionend', hidePlaceholder);
-
-    return () => {
-      loadingImagePointer?.removeEventListener('load', executeLoadImage);
+    const options = {
+      root: null,
+      rootMargin: '100px',
+      threshold: 1.0
     };
+
+    // We immediately disconnect the observer when we're intersecting
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          executeLoadImage();
+          observer.disconnect();
+        }
+      });
+    }, options);
+
+    observer.observe(loadingImage.current!);
   }, []);
 
-  useEffect(() => {
-    const w = window.innerWidth;
-    console.log(w)
-  },[])
-
-  function executeLoadImage() {
-    if (loadingImage.current && placeholderImage.current && imagesContainer.current) {
-      // loadingImage.current.style.opacity = '1';
-      // placeholderImage.current.style.opacity = '0';
-      imagesContainer.current.style.filter = 'blur(0)';
-    }
+  function cleanUpLoadImage() {
+    (loadingImage.current?.parentNode as HTMLLIElement).style.filter = 'blur(0px)';
+    loadingImage.current?.removeEventListener('load', cleanUpLoadImage);
   }
 
-  function hidePlaceholder() {
-    if (placeholderImage.current) {
-      placeholderImage.current.style.display = 'none';
-    }
+  function loadMainImage() {
+    loadingImage.current?.addEventListener('load', cleanUpLoadImage);
+    loadingImage.current?.setAttribute('src', imageURL_1x);
+    loadingImage.current?.setAttribute('srcSet', `${imageURL_1x} 1x, ${imageURL_2x} 2x`);
+  }
+
+  function executeLoadImage() {
+    loadMainImage();
+    loadingImage.current?.style.removeProperty('background-image');
+    loadingImage.current?.style.removeProperty('background-repeat');
+    loadingImage.current?.style.removeProperty('background-size');
   }
 
   return (
-      <img
-        className='image_frame--image'
-        ref={loadingImage}
-        src={blurDataUrl}
-        width={imgSize.w}
-        height={imgSize.h}
-        // srcSet={`${imageURL_1x} 1x, ${imageURL_2x} 2x`}
-        alt={`placeholder for ${imgAlt}`}
-        style={{
-          borderRadius: '5px',
-          // position: 'absolute',
-          // zIndex: 3,
-          // height:'100%',
-          // width:'100%',
-          // left: 0,
-          // top: 0,
-          // transitionDelay: transitionDelay,
-          // backgroundImage: `url(${blurDataUrl})`,
-          // backgroundRepeat: 'no-repeat',
-          // backgroundSize: 'cover'
-        }}
-      />
-    //   <img
-    //     className='image_frame--image main-image'
-    //     srcSet={`${imageURL_1x} 1x, ${imageURL_2x} 2x`}
-    //     src={`${imageURL_1x}`}
-    //     alt={imgAlt}
-    //     width={imgSize.w}
-    //     height={imgSize.h}
-    //     ref={loadingImage}
-    //     loading={loading}
-    //     decoding='async'
-    //     style={{ opacity: 0, transitionDelay: transitionDelay, zIndex: 4 }}
-    //   /> 
-    // </div >
+    <img
+      className='image_frame--image'
+      ref={loadingImage}
+      src={blurDataUrl}
+      width={imgSize.w}
+      height={imgSize.h}
+      alt={`placeholder for ${imgAlt}`}
+      loading={loading}
+      style={{
+        borderRadius: '10px',
+        transitionDelay: transitionDelay,
+        backgroundImage: `url(${blurDataUrl})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}
+    />
   );
 }
