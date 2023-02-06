@@ -29,7 +29,8 @@ export default function LightboxURL({
     // Here, we're initiating our IntersectionObserver for the lightbox contents
     const options = {
       root: null,
-      rootMargin: '-60px',
+      rootMargin: '-50px',
+      threshold: 0.8,
     };
     const observer = new IntersectionObserver(intersectCallback, options);
 
@@ -188,6 +189,7 @@ export default function LightboxURL({
                 className='image_container--image_wrap-outer'
               >
                 <ImageFrame
+                  key={url_1x}
                   imageURL_1x={`/images/product_images/${url_1x}`}
                   imageURL_2x={`/images/product_images/${url_2x}`}
                   imgAlt={alt}
@@ -213,14 +215,18 @@ export default function LightboxURL({
               key={`${alt}-${index}`}
               onClick={() => handleOnThumbClick(index)}
               className={'thumbnail_container--item-image'}
+              style={{
+                transitionDelay: `${(index * 60)}ms`
+              }}
             >
               <ImageFrame
+                key={thumb_1x}
                 imageURL_1x={`/images/product_images/${thumb_1x}`}
                 imageURL_2x={`/images/product_images/${thumb_2x}`}
                 imgAlt={alt}
                 imgSize={{ h: thumbDimensions.h, w: thumbDimensions.w }}
                 blurDataUrl={blurDataURL}
-                transitionDelay={`${(index * 60)}ms`}
+
                 loading='lazy'
               />
             </li>
