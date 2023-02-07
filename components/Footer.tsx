@@ -41,31 +41,47 @@ export default function Footer(this: any) {
     <div className="footer">
       <nav className='footer--links'>
         <ul className='footer--link_holder'>
-          <li
-            onKeyDown={handleEnterDown.bind(this, { route: 'https://github.com/MisterPea' })}
-            onClick={buttonClick.bind(this, 'https://github.com/MisterPea')}
-            role='link'
-            tabIndex={0}
-          ><FaGithub size={18} />
+          <li>
+            <button
+              onKeyDown={handleEnterDown.bind(this, { route: 'https://github.com/MisterPea' })}
+              onClick={buttonClick.bind(this, 'https://github.com/MisterPea')}
+              role='link'
+              aria-label='GitHub Link'
+              tabIndex={0}
+            >
+              <FaGithub size={18} />
+            </button>
           </li>
-          <li
-            onKeyDown={handleEnterDown.bind(this, { route: 'https://www.linkedin.com/in/perry-angelora/' })}
-            onClick={buttonClick.bind(this, 'https://www.linkedin.com/in/perry-angelora/')}
-            role='link'
-            tabIndex={0}
-          ><FaLinkedinIn size={18} /></li>
-          <li
-            onKeyDown={handleEnterDown.bind(this, { route: 'https://www.instagram.com/_mister_pea/' })}
-            onClick={buttonClick.bind(this, 'https://www.instagram.com/_mister_pea/')}
-            role='link'
-            tabIndex={0}
-          ><FaInstagram size={18} /></li>
-          <li
-            onKeyDown={handleEnterDown.bind(this, { route: emailClick })}
-            onClick={emailClick}
-            role='link'
-            tabIndex={0}
-          ><FaRegEnvelope size={18} /></li>
+          <li>
+            <button
+              onKeyDown={handleEnterDown.bind(this, { route: 'https://www.linkedin.com/in/perry-angelora/' })}
+              onClick={buttonClick.bind(this, 'https://www.linkedin.com/in/perry-angelora/')}
+              role='link'
+              aria-label='LinkedIn Link'
+              tabIndex={0}
+            ><FaLinkedinIn size={18} />
+            </button>
+          </li>
+          <li>
+            <button
+              onKeyDown={handleEnterDown.bind(this, { route: 'https://www.instagram.com/_mister_pea/' })}
+              onClick={buttonClick.bind(this, 'https://www.instagram.com/_mister_pea/')}
+              role='link'
+              aria-label='Instagram Link'
+              tabIndex={0}
+            ><FaInstagram size={18} />
+            </button>
+          </li>
+          <li>
+            <button
+              onKeyDown={handleEnterDown.bind(this, { route: emailClick })}
+              onClick={emailClick}
+              role='link'
+              aria-label='Launch Email '
+              tabIndex={0}
+            ><FaRegEnvelope size={18} />
+            </button>
+          </li>
         </ul>
       </nav>
     </div>

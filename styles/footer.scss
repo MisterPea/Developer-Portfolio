@@ -14,14 +14,18 @@
     align-items: center;
     height: 100%;
   }
-  li {
+  button {
+    background: none;
+    padding: 2px 2px 0;
+    border: none;
+    border-radius: 3px;
     margin: 0 5px;
     position: relative;
     cursor: pointer;
     color: var(--text-black-lite);
     transition: 300ms color ease-in;
   }
-  li:hover {
+  button:hover {
     color: var(--text-black);
   }
 }

@@ -34,7 +34,7 @@ export default function ImageFrame({ imageURL_1x, imageURL_2x, imgAlt, imgSize, 
       threshold: 0.1
     };
 
-    // We immediately disconnect the observer when we're intersecting
+    // We immediately disconnect the observer when isIntersecting === true
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {

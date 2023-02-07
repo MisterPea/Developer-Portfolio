@@ -50,7 +50,11 @@ export default function Works() {
           initial='hidden'
           animate='show'
           className="works--cards-list">
-          {ProjectData.map(({ title, mainPageDescription, projectSlug, mainImage }, index) => (
+          {ProjectData.map(({
+            mainImages,
+            title,
+            mainPageDescription,
+            projectSlug}, index) => (
             <motion.li
               variants={item}
               className="works--card-item"
@@ -59,8 +63,8 @@ export default function Works() {
               <ProjectCard
                 title={title}
                 topDesc={mainPageDescription}
-                image={mainImage}
                 projectSlug={projectSlug}
+                mainImages={mainImages}
               />
             </motion.li>
           ))}

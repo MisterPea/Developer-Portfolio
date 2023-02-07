@@ -36,6 +36,7 @@
   @include desktop {
     height: 140px;
   }
+
 }
 
 .image_frame--image {
@@ -165,6 +166,7 @@
     filter: blur(40px);
     transition: opacity 300ms ease-in-out, filter 400ms ease-in-out;
     // transition-delay: 230ms;
+    margin: 0 10vw;
     width: 100%;
     position: relative;
     &.in-frame {

@@ -11,7 +11,6 @@ export default function LightboxURL({
   backgroundColor,
   controlsColor,
   imageBoxPadding,
-  thumbnailStyle,
   textDescriptionStyle,
   nextFontAccess,
 }: LightboxURLProps) {
@@ -31,7 +30,7 @@ export default function LightboxURL({
     const options = {
       root: imageUL.current,
       rootMargin: '-2%',
-      threshold: 0.1,  
+      threshold: 0.1,
     };
     const observer = new IntersectionObserver(intersectCallback, options);
 
@@ -44,7 +43,7 @@ export default function LightboxURL({
     return () => {
       removeEventListener('transitionstart', activeZIndex);
       removeEventListener('transitionend', inactiveZIndex);
-      observer.disconnect()
+      observer.disconnect();
     };
   }, []);
 
@@ -85,6 +84,8 @@ export default function LightboxURL({
     if (e.propertyName === 'opacity') {
       if (lightboxDiv.current?.classList.contains('active')) {
         (lightboxDiv.current as HTMLElement).style.zIndex = '10';
+        (lightboxDiv.current as HTMLElement).setAttribute('aria-hidden', 'false');
+
       }
     }
   }
@@ -93,6 +94,7 @@ export default function LightboxURL({
     if (e.propertyName === 'opacity') {
       if (!lightboxDiv.current?.classList.contains('active')) {
         (lightboxDiv.current as HTMLElement).style.zIndex = '-1';
+        (lightboxDiv.current as HTMLElement).setAttribute('aria-hidden', 'true');
       }
     }
 
@@ -154,6 +156,7 @@ export default function LightboxURL({
         ref={lightboxDiv}
         tabIndex={0}
         onKeyDown={handleKeyDown}
+        aria-hidden='true'
         style={{ backgroundColor: backgroundColor }}
       >
         <span className='main_image_container--button_group'>
@@ -161,6 +164,8 @@ export default function LightboxURL({
             className='main_image_container--close_button'
             style={{ color: controlsColor }}
             onClick={closeOverlay}
+            aria-controls='main-image-viewer'
+            aria-label='Close Image Viewer'
           >
             <TfiClose size={25} />
           </button>
@@ -168,6 +173,9 @@ export default function LightboxURL({
             className='main_image_container--nav_button-prev'
             style={{ color: controlsColor, display: `${currentImage === 0 ? 'none' : 'block'}` }}
             onClick={prevImage}
+            aria-controls='main-image-viewer'
+            aria-label='View Previous Image'
+            aria-disabled={currentImage === 0 ? true : false}
           >
             <TfiAngleLeft size={30} />
           </button>
@@ -175,13 +183,15 @@ export default function LightboxURL({
             className='main_image_container--nav_button-next'
             style={{ color: controlsColor, display: `${currentImage === imageArray.current.length - 1 ? 'none' : 'block'}` }}
             onClick={nextImage}
+            aria-controls='main-image-viewer'
+            aria-label='View Next Picture'
+            aria-disabled={currentImage === imageArray.current.length - 1 ? true : false}
           >
             <TfiAngleRight size={30} />
           </button>
         </span>
         <ul
-          // we need to check to see if chrome is being used, if so we need to disable
-          // scroll-snap because of a persistent browser bug.
+          id='main-image-viewer'
           className='image_container'
           ref={imageUL}
           style={{ padding: imageBoxPadding }}
@@ -217,10 +227,10 @@ export default function LightboxURL({
         <ul key={'ul-thumb'} className="thumbnail_container">
           {imageList.map(({ alt, thumb_1x, thumb_2x, thumbDimensions, blurDataURL }, index) => (
             <li
-              role='button'
               key={`${alt}-${index}`}
-              onClick={() => handleOnThumbClick(index)}
               className={'thumbnail_container--item-image'}
+              onClick={() => handleOnThumbClick(index)}
+              role='listitem'
               style={{
                 transitionDelay: `${(index * 60)}ms`
               }}
