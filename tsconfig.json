@@ -24,7 +24,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "helpers/onSiteLoad.js"  ],
   "exclude": [
     "node_modules"
   ]
