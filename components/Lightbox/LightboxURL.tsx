@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useRef } from 'react';
 import { LightboxURLProps } from '../../helpers/types';
 import { TfiClose, TfiAngleLeft, TfiAngleRight } from 'react-icons/tfi';
@@ -28,9 +29,9 @@ export default function LightboxURL({
 
     // Here, we're initiating our IntersectionObserver for the lightbox contents
     const options = {
-      root: null,
-      rootMargin: '-50px',
-      threshold: 0.8,
+      root: imageUL.current,
+      rootMargin: '-2%',
+      threshold: 0.1,  
     };
     const observer = new IntersectionObserver(intersectCallback, options);
 
@@ -39,11 +40,14 @@ export default function LightboxURL({
         observer.observe(image);
       }
     }
+
     return () => {
       removeEventListener('transitionstart', activeZIndex);
       removeEventListener('transitionend', inactiveZIndex);
+      observer.disconnect()
     };
   }, []);
+
 
   function intersectCallback(entries: IntersectionObserverEntry[]) {
     // the length test is to filter-out the initial triggering of the callback
@@ -176,7 +180,9 @@ export default function LightboxURL({
           </button>
         </span>
         <ul
-          className="image_container"
+          // we need to check to see if chrome is being used, if so we need to disable
+          // scroll-snap because of a persistent browser bug.
+          className='image_container'
           ref={imageUL}
           style={{ padding: imageBoxPadding }}
         >
@@ -226,7 +232,6 @@ export default function LightboxURL({
                 imgAlt={alt}
                 imgSize={{ h: thumbDimensions.h, w: thumbDimensions.w }}
                 blurDataUrl={blurDataURL}
-
                 loading='lazy'
               />
             </li>
