@@ -1,7 +1,14 @@
 [
   {
     "projectSlug": "unsequenced",
-    "mainImage": "iPhone_combined.png",
+    "mainImages": {
+      "mainImage_one_1x": "unsequenced_650w1x.webp",
+      "mainImage_one_2x": "unsequenced_650w2x.webp",
+      "mainImage_two_1x": "unsequenced_300w1x.webp",
+      "mainImage_two_2x": "unsequenced_300w2x.webp",
+      "mainImage_three_1x": "unsequenced_450w1x.webp",
+      "mainImage_three_2x": "unsequenced_450w2x.webp"
+    },
     "mainPageDescription": "A Pomodoro Technique-inspired task/timer app for the iPhone, developed to help you stay on track and effectively manage your time.",
     "title": "Unsequenced",
     "subTitle": "A Pomodoro Technique-inspired task/timer app for iOS devices.",
@@ -205,7 +212,14 @@
   },
   {
     "projectSlug": "simple-storage-service-ui",
-    "mainImage": "s3_combo.png",
+    "mainImages": {
+      "mainImage_one_1x": "s3ui_650w1x.webp",
+      "mainImage_one_2x": "s3ui_650w2x.webp",
+      "mainImage_two_1x": "s3ui_300w1x.webp",
+      "mainImage_two_2x": "s3ui_300w2x.webp",
+      "mainImage_three_1x": "s3ui_450w1x.webp",
+      "mainImage_three_2x": "s3ui_450w2x.webp"
+    },
     "mainPageDescription": "A full-stack UI for AWS's Simple Storage Service that streamlines essential actions and simplifies the process of file uploads and downloads.",
     "title": "S3-UI",
     "subTitle": "A full-stack UI for AWS's Simple Storage Service.",
@@ -482,7 +496,14 @@
   },
   {
     "projectSlug": "top-stories",
-    "mainImage": "nyt_combo.png",
+    "mainImages": {
+      "mainImage_one_1x": "nyt_650w1x.webp",
+      "mainImage_one_2x": "nyt_650w2x.webp",
+      "mainImage_two_1x": "nyt_300w1x.webp",
+      "mainImage_two_2x": "nyt_300w2x.webp",
+      "mainImage_three_1x": "nyt_450w1x.webp",
+      "mainImage_three_2x": "nyt_450w2x.webp"
+    },
     "mainPageDescription": "A portal to view Top Stories from the NY Times, and subscribe to a daily email of user-selected story topics.",
     "title": "NY Times Aggregator & Daily Email Subscription",
     "subTitle": "NY Times Top Stories combined with a daily email of user-selected top stories.",
@@ -670,7 +691,14 @@
   },
   {
     "projectSlug": "fine-art-portfolio",
-    "mainImage": "fine_art_combo.png",
+    "mainImages": {
+      "mainImage_one_1x": "fine_art_650w1x.webp",
+      "mainImage_one_2x": "fine_art_650w2x.webp",
+      "mainImage_two_1x": "fine_art_300w1x.webp",
+      "mainImage_two_2x": "fine_art_300w2x.webp",
+      "mainImage_three_1x": "fine_art_450w1x.webp",
+      "mainImage_three_2x": "fine_art_450w2x.webp"
+    },
     "mainPageDescription": "Image portfolio coupled with a CMS, allowing images uploads, semi-autonomous thumbnail creation, image labeling and organization.",
     "title": "Fine Art Portfolio with CMS",
     "subTitle": "Image portfolio and a CMS that allows the user to upload an image and crop it for a thumbnail, as well as add a title and specs.",
