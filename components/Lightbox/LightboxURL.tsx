@@ -19,7 +19,6 @@ export default function LightboxURL({
   const imageArray = useRef<any>([]);
   const lightboxDiv = useRef<HTMLDivElement>(null);
   const imageUL = useRef<HTMLUListElement>(null);
-  const [isChromeBrowser, setIsChromeBrowser] = useState<boolean>(false);
 
   useEffect(() => {
     imageArray.current = lightboxDiv.current!.querySelectorAll("[class^='image_container--item']");
@@ -30,9 +29,9 @@ export default function LightboxURL({
 
     // Here, we're initiating our IntersectionObserver for the lightbox contents
     const options = {
-      root: null,
-      rootMargin: '-150px',
-      threshold: 0.8,  
+      root: imageUL.current,
+      rootMargin: '-2%',
+      threshold: 0.1,  
     };
     const observer = new IntersectionObserver(intersectCallback, options);
 
@@ -40,14 +39,6 @@ export default function LightboxURL({
       for (let image of imageArray.current) {
         observer.observe(image);
       }
-    }
-
-    // we need to check to see if chrome is being used, if so we need to disable
-    // scroll-snap because of a persistent browser bug.
-    const userAgent = window.navigator.userAgent;
-    const chromeRegex = /\bChrome\b(?!.*Mobile)/g;
-    if (userAgent.match(chromeRegex) && !isChromeBrowser) {
-      setIsChromeBrowser(true);
     }
 
     return () => {
@@ -191,7 +182,7 @@ export default function LightboxURL({
         <ul
           // we need to check to see if chrome is being used, if so we need to disable
           // scroll-snap because of a persistent browser bug.
-          className={`image_container${isChromeBrowser ? ' chrome' : ''}`}
+          className='image_container'
           ref={imageUL}
           style={{ padding: imageBoxPadding }}
         >
@@ -241,7 +232,6 @@ export default function LightboxURL({
                 imgAlt={alt}
                 imgSize={{ h: thumbDimensions.h, w: thumbDimensions.w }}
                 blurDataUrl={blurDataURL}
-
                 loading='lazy'
               />
             </li>

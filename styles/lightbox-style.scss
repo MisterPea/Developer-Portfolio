@@ -44,8 +44,9 @@
   display: block;
 }
 
-/// MAIN IMAGE CONTAINER
+/// MAIN IMAGE CONTAINER ///
 
+/// Buttons /// 
 .mobile-close {
   display: block;
   position: absolute;
@@ -151,9 +152,6 @@
   overflow-y: hidden;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  &.chrome {
-    overflow-x: hidden;
-  }
   &::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */
@@ -164,22 +162,25 @@
     scroll-snap-align: center;
     scroll-snap-stop: always;
     opacity: 0;
-    transition: opacity 400ms ease-in-out;
-    transition-delay: 230ms;
+    filter: blur(40px);
+    transition: opacity 300ms ease-in-out, filter 400ms ease-in-out;
+    // transition-delay: 230ms;
     width: 100%;
+    position: relative;
     &.in-frame {
       opacity: 1;
     }
   }
 
   &--image_wrap-outer {
-    padding: 20px 30px 0;
     max-height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
-    filter: blur(40px);
-    transition: filter 500ms ease-in-out;
+    @include tablet {
+      padding: 20px 30px 0;
+    }
+    
     img {
       max-height: 80vh;
       max-width: 100%;
@@ -194,8 +195,8 @@
     width: 75%;
     opacity: 0;
     color: var(--text-black);
-    transition: opacity 400ms ease-in-out;
-    transition-delay: 300ms;
+    transition: opacity 800ms ease-in-out;
+    transition-delay: 400ms;
     font-size: 0.9rem;
     &.in-frame {
       opacity: 1;

@@ -31,7 +31,7 @@ export default function ImageFrame({ imageURL_1x, imageURL_2x, imgAlt, imgSize, 
     const options = {
       root: null,
       rootMargin: '100px',
-      threshold: 1
+      threshold: 0.1
     };
 
     // We immediately disconnect the observer when we're intersecting
@@ -48,7 +48,7 @@ export default function ImageFrame({ imageURL_1x, imageURL_2x, imgAlt, imgSize, 
   }, []);
 
   function cleanUpLoadImage() {
-    (loadingImage.current?.parentNode as HTMLLIElement).style.filter = 'blur(0px)';
+    (loadingImage.current!.closest('li') as HTMLLIElement).style.filter = 'blur(0px)';
     loadingImage.current?.removeEventListener('load', cleanUpLoadImage);
     loadingImage.current = null;
   }
