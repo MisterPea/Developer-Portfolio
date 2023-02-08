@@ -26,8 +26,7 @@ export default function Header() {
 
   // Intersection observer for the title
   const callIntersect = (entry: IntersectionObserverEntryInit[]) => {
-    // for some reason isIntersecting: true is actually not intersecting, and visa versa
-    // not intersecting. We're really looking that the text is within the bounds of the screen.
+    // We're looking that the text is within the bounds of the screen.
     // But it works: if we remove the bigger title from the DOM the
     // smaller one auto-magically deploys.
     const displayLargeText = entry[0].isIntersecting;
@@ -45,6 +44,7 @@ export default function Header() {
 
   useEffect(() => {
     if (titleText.current) {
+      // document.addEventListener('scroll')
       const observer = new IntersectionObserver(callIntersect, options);
       observer.observe(titleText.current);
     }
@@ -57,10 +57,20 @@ export default function Header() {
     });
   }
 
+  function forceLargeHeader() {
+    if (smallTitle.current?.classList.contains('small')) {
+      titleBody.current?.classList.remove('small');
+      smallTitle.current?.classList.remove('small');
+      titleBody.current?.classList.add('large');
+      smallTitle.current?.classList.add('large');
+    }
+    titleBody.current?.classList.remove('minimize');
+  }
+
   // This preemptively sets the header for the work page when coming from somewhere else
   function handleWorkClick() {
     if (route.asPath !== '/works') {
-      deployRetractHeader('large');
+      forceLargeHeader();
     }
   }
 
@@ -93,9 +103,9 @@ export default function Header() {
           </nav>
         </div>
       </div>
-      <div ref={titleBody} className={`header--title large ${RobotoSerif.className}`}>
-        <h1 className={`header--title-name ${route.asPath === '/works' ? '' : 'minimize'}`} ref={titleText} >Hi, I&apos;m Perry.</h1>
-        <h1 className={`header--title-sub_title ${route.asPath === '/works' ? '' : 'minimize'}`} >Design Technologist/Jack of Many Trades...</h1>
+      <div ref={titleBody} className={`header--title large ${RobotoSerif.className} ${route.asPath === '/works' ? '' : 'minimize'}`}>
+        <h1 className='header--title-name' ref={titleText} >Hi, I&apos;m Perry.</h1>
+        <h1 className='header--title-sub_title'>Design Technologist/Jack of Many Trades...</h1>
       </div>
     </header>
   );

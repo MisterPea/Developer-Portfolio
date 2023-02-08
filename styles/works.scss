@@ -2,7 +2,7 @@
 
 .works--container {
   max-width: var(--mobile-max-width);
-  margin: 0 auto 40px;
+  margin: 0 auto 60px;
   @include tablet {
     max-width: var(--tablet-max-width);
     margin: 0 auto 120px;
