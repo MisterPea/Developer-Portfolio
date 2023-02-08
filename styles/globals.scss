@@ -60,6 +60,9 @@ body {
     background-size: 8px;
     z-index: -1;
   }
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 a {

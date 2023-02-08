@@ -57,6 +57,7 @@ export default function Project({ projectData }: { projectData: ProjectDataProps
         <h3 className={`project--images-title ${RobotoSerif.className}`}>Project Images:</h3>
         <LightboxURL imageList={productImages} nextFontAccess={roboto.className} />
       </section>
+      <div className='project--dotted_line mobile' />
     </motion.div>
   );
 }

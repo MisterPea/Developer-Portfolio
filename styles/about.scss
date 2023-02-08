@@ -3,6 +3,8 @@
 .about--container {
   max-width: var(--mobile-max-width);
   // padding-top: 80px;
+  height: 101vh;
+  bottom: 0;
   margin: 0 auto 40px;
   @include tablet {
     // padding-top: 170px;
@@ -41,7 +43,7 @@
 }
 
 .about--portrait {
-  margin: 0 auto;
+  margin: 15px auto 20px;
   height: 110px;
   width: 110px;
   animation-name: fadeIn;
@@ -54,6 +56,7 @@
     width: 100%;
   }
   @include tablet {
+    margin: 20px auto 30px;
     height: 150px;
     width: 150px;
   }
@@ -114,12 +117,14 @@
 }
 
 .about--links-cta {
+  margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
   font-weight: 500;
-  font-size: 1.5rem;
-  color: var(--text-black);
+  font-size: 1.75rem;
+  color: var(--text-black-lite);
   @include tablet {
+    font-size: 1.5rem;
     margin-bottom: 5px;
   }
 }
@@ -128,36 +133,62 @@
   display: flex;
   position: relative;
   li {
-    margin: 0 10px;
+    margin: 0 20px;
     height: 30px; // height corresponds svg height
 
     a {
       color: var(--text-black);
     }
   }
-  @include tablet {
-    li {
-      cursor: pointer;
-    }
 
-    .icon-group {
-      height: 40px;
+  li {
+    cursor: pointer;
+  }
+
+  .icon-group {
+    height: 40px;
+    width: 40px;
+
+    .icon {
       width: 40px;
-
+      height: 40px;
+      position: absolute;
+      color: var(--text-black-lite);
+      transform: translate(7px, 7px);
+      transition: color 600ms ease-in-out;
+      svg {
+        height: 32px;
+        width: 32px;
+        
+      }
+    }
+    circle {
+      visibility: hidden;
+    }
+  }
+  @media (hover: hover) {
+    li {
+      margin: 0 10px;
+    }
+    .icon-group {
+      circle {
+        visibility: visible;
+      }
       .icon {
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        transform: translate(7px, 7px);
-        transition: color 600ms ease-in-out;
+        svg {
+          height: 26px;
+          width: 26px;
+        }
       }
     }
     .ring {
+
       height: 40px;
       width: 40px;
       rotate: 90deg;
     }
     .ring--circle {
+      // display:inline;
       stroke-dasharray: 200 200;
       stroke-dashoffset: 200;
       stroke: #129ae3;
@@ -174,6 +205,5 @@
         color: var(--accent-blue);
       }
     }
-
   }
 }
