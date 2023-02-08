@@ -4,8 +4,12 @@
   position: absolute;
   bottom: 10px;
   width: 100%;
-  // padding-bottom: 30px;
-  // height: 30px;
+  height: 35px;
+  @include tablet {
+    padding: 0;
+    bottom: 10px;
+    height: 20px;
+  }
 
   &--link_holder {
     display: flex;
@@ -19,11 +23,23 @@
     padding: 2px 2px 0;
     border: none;
     border-radius: 3px;
-    margin: 0 5px;
+    margin: 0 15px;
     position: relative;
     cursor: pointer;
     color: var(--text-black-lite);
     transition: 300ms color ease-in;
+    svg {
+      height: 24px;
+      width: 24px;
+    }
+    @include tablet {
+      margin: 0 5px;
+      svg {
+        height: unset;
+        width: unset;
+      }
+    }
+    
   }
   button:hover {
     color: var(--text-black);

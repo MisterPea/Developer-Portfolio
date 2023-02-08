@@ -5,28 +5,39 @@ import { galleryVariant } from '../helpers/galleryVariants';
 import ProjectData from '../public/workPagesContent.json';
 
 const container = {
-  hidden: { opacity: 0 },
+  hidden: {
+    y: 100,
+    opacity: 0
+
+  },
   show: {
+    y: 0,
     ease: [.14, .66, .48, .98],
     opacity: 1,
     transition: {
-      staggerChildren: 0.125,
+      duration: 0.3,
+      staggerChildren: 0.225,
     },
   }
 };
 
 const item = {
   hidden: {
+    y: 100,
     transition: {
       duration: 0.5,
       type: 'tween',
+      ease: [.08, .6, .25, .98]
+
     },
     opacity: 0,
   },
   show: {
+    y: 0,
     transition: {
       duration: 0.5,
       type: 'tween',
+      ease: [.08, .6, .25, .98]
     },
     opacity: 1,
   },
@@ -54,7 +65,7 @@ export default function Works() {
             mainImages,
             title,
             mainPageDescription,
-            projectSlug}, index) => (
+            projectSlug }, index) => (
             <motion.li
               variants={item}
               className="works--card-item"

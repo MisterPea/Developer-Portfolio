@@ -125,27 +125,9 @@ a {
   transition: color 300ms cubic-bezier(0.19, 0.94, 0.42, 0.99);
 }
 
-// select the a that's active - could do hover too
+// select the <a> that's active - could do hover too
 a:has(+ div.active) {
   color: var(--accent-blue);
-}
-
-@keyframes fadeOutLarge {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeInLarge {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 .header--title {
@@ -155,18 +137,23 @@ a:has(+ div.active) {
   font-size: 1rem;
   color: var(--text-black);
   line-height: 225%;
+  transition: all 500ms cubic-bezier(.08,.6,.26,.98);
   &.small {
-    animation-name: fadeOutLarge;
-    animation-duration: 300ms;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
+    opacity: 0;
   }
   &.large {
-    animation-name: fadeInLarge;
-    animation-duration: 530ms;
-    animation-fill-mode: backwards;
-    animation-timing-function: cubic-bezier(0.52, 0.21, 0.84, 0.54);
+    opacity: 1;
+    .header--title-name {
+      margin-top: 0px;
+    }
   }
+  &.minimize {
+    opacity: 0;
+    .header--title-name {
+      margin-top: -400px;
+    }
+  }
+
   @include tablet {
     padding-top: 110px;
     max-width: var(--tablet-inner-max-width);
@@ -182,13 +169,6 @@ a:has(+ div.active) {
 .header--title-name {
   font-weight: 500;
   color: var(--accent-blue);
-  margin-top: 0;
-  transition: margin-top 10ms ease-in;
-  transition-delay: 150ms; 
-  &.minimize {
-    // There's a chance this isn't needed.
-    margin-top: -400px;
-  }
 }
 
 .header--title-sub_title {
