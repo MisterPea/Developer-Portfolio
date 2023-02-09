@@ -3,6 +3,7 @@ import { roboto } from '../helpers/fonts';
 import { motion } from 'framer-motion';
 import { galleryVariant } from '../helpers/galleryVariants';
 import ProjectData from '../public/workPagesContent.json';
+import Head from 'next/head';
 
 const container = {
   hidden: {
@@ -46,41 +47,62 @@ const item = {
 export default function Works() {
 
   return (
-    <motion.div
-      initial={galleryVariant.galleryStart}
-      animate={galleryVariant.galleryEnter}
-      exit={galleryVariant.galleryExit}
-      variants={galleryVariant}
-      className="works--container"
-    >
-      <p className={`works--header ${roboto.className}`}>Here&apos;s a selection of some recent projects.</p>
-      <div className="works--dotted_line" />
-      <div className='works--cards-container'>
-        <motion.ul
-          variants={container}
-          initial='hidden'
-          animate='show'
-          className="works--cards-list">
-          {ProjectData.map(({
-            mainImages,
-            title,
-            mainPageDescription,
-            projectSlug }, index) => (
-            <motion.li
-              variants={item}
-              className="works--card-item"
-              key={`project-${index}`}
-            >
-              <ProjectCard
-                title={title}
-                topDesc={mainPageDescription}
-                projectSlug={projectSlug}
-                mainImages={mainImages}
-              />
-            </motion.li>
-          ))}
-        </motion.ul>
-      </div>
-    </motion.div>
+    <>
+      <Head>
+        <title>Perry&apos;s Portfolio</title>
+        <meta name="description" content="Perry's Portfolio - Front-End Developer / Design Technologist / Jack of many trades: creator of user interfaces, experiences, and web applications." key="description" />
+        <meta name="keywords" content="Front-End Development, React.js, Redux, TypeScript, Javascript (es6-es12), CSS, SCSS, HTML, UI Architecture, Test-Driven Development, React-Native, Node.js, Express.js, GIT, Adobe XD, Adobe Illustrator, Figma, Photoshop, JAMStack, AWS, GCP, Docker, Nginx, Firebase, Firestore, Twilio Sendgrid, Next.js, Material-UI, Framer-Motion." key="keywords" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0 viewport-fit=cover" />
+        <meta name="theme-color" content="#303030" />
+        <meta name="google-site-verification" content="verification_token" />
+        <meta name="robots" content="max-snippet:-1" key="bot-one" />
+        <meta name="robots" content="noimageindex" key="bot-two" />
+        <meta name="robots" content="nositelinkssearchbox" key="bot-three" />
+        <meta property="og:title" content="Perry&apos;s Portfolio" key="og-title" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://misterpea.me" key="og-url" />
+        <meta property="og:description" content="Perry's Portfolio - Front-End Developer / Design Technologist / Jack of many trades: creator of user interfaces, experiences, and web applications." key="og-description" />
+        <meta property="og:image" content="/images/misterpea.me-og-image.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#303030" />
+      </Head>
+      <motion.div
+        initial={galleryVariant.galleryStart}
+        animate={galleryVariant.galleryEnter}
+        exit={galleryVariant.galleryExit}
+        variants={galleryVariant}
+        className="works--container"
+      >
+        <p className={`works--header ${roboto.className}`}>Here&apos;s a selection of some recent projects.</p>
+        <div className="works--dotted_line" />
+        <div className='works--cards-container'>
+          <motion.ul
+            variants={container}
+            initial='hidden'
+            animate='show'
+            className="works--cards-list">
+            {ProjectData.map(({
+              mainImages,
+              title,
+              mainPageDescription,
+              projectSlug }, index) => (
+              <motion.li
+                variants={item}
+                className="works--card-item"
+                key={`project-${index}`}
+              >
+                <ProjectCard
+                  title={title}
+                  topDesc={mainPageDescription}
+                  projectSlug={projectSlug}
+                  mainImages={mainImages}
+                />
+              </motion.li>
+            ))}
+          </motion.ul>
+        </div>
+      </motion.div>
+    </>
   );
 }

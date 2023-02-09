@@ -3,7 +3,8 @@ import { RobotoSerif, roboto } from '../helpers/fonts';
 import AboutImageCanvas from '../components/Canvas';
 import { motion } from 'framer-motion';
 import { aboutVariant } from '../helpers/galleryVariants';
-import { KeyboardEvent, useLayoutEffect } from 'react';
+import { KeyboardEvent } from 'react';
+import Head from 'next/head';
 import RingedIcon from '../components/RingedIcon';
 
 export default function About(this: any) {
@@ -45,6 +46,25 @@ export default function About(this: any) {
 
   return (
     <>
+      <Head>
+        <title>About | Perry&apos;s Portfolio</title>
+        <meta name="description" content='About Perry, A designer whom gives form to the structureless, visually, computationally, or otherwise.' key="description" />
+        <meta name="keywords" content="About Perry, A designer whom gives form to the structureless, visually, computationally, or otherwise." key="keywords" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0 viewport-fit=cover" />
+        <meta name="theme-color" content="#303030" />
+        <meta name="google-site-verification" content="verification_token" />
+        <meta name="robots" content="max-snippet:-1" key="bot-one" />
+        <meta name="robots" content="noimageindex" key="bot-two" />
+        <meta name="robots" content="nositelinkssearchbox" key="bot-three" />
+        <meta property="og:title" content="About | Perry's Portfolio" key="og-title" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content='https://misterpea.me/about' key="og-url" />
+        <meta property="og:description" content="About Perry, A designer whom gives form to the structureless, visually, computationally, or otherwise." key="og-description" />
+        <meta property="og:image" content="/images/misterpea.me-og-image.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#303030" />
+      </Head>
       <motion.div
         initial={aboutVariant.aboutStart}
         animate={aboutVariant.aboutEnter}
