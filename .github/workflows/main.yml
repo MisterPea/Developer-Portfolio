@@ -2,7 +2,7 @@ name: Deploy to S3
 
 on:
   pull_request:
-    branches: [ main-origin ]
+    branches: [ main ]
 
   workflow_dispatch:
 
@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./App/misterpea.me
+        working-directory: ./
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with: 
-          node-version: '16'
+          node-version: '18'
       - run: npm ci
       - run: npm run export
 
