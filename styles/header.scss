@@ -137,7 +137,9 @@ a:has(+ div.active) {
   font-size: 1rem;
   color: var(--text-black);
   line-height: 225%;
-  transition: all 500ms cubic-bezier(.08,.6,.26,.98);
+  opacity: 1;
+  margin-top: 0;
+  transition: opacity 1000ms ease-in-out;
   &.small {
     opacity: 0;
   }

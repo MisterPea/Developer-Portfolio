@@ -31,6 +31,7 @@ export interface ProjectDataProps {
   featuresInclude: string[];
   challenges: string[];
   productImages: ImageURLObject[];
+  projectSlug: string;
 }
 
 import { NextFont } from '@next/font/dist/types';

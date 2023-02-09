@@ -7,14 +7,28 @@ import { AnimatePresence } from 'framer-motion';
 import Footer from '../components/Footer';
 import onSiteLoad from '../helpers/onSiteLoad';
 import { useEffect } from 'react';
+import Script from 'next/script';
+import * as gtag from '../helpers/gtag';
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { asPath } = useRouter();
+  const { asPath, events } = useRouter();
 
   useEffect(() => {
     onSiteLoad();
   }, []);
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url);
+    };
+
+    events.on('routeChangeComplete', handleRouteChange);
+
+    return () => {
+      events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [events]);
 
   return (
     <>
@@ -29,6 +43,17 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#303030" />
       </Head>
+      <Script strategy='afterInteractive' async src="https://www.googletagmanager.com/gtag/js?id=G-XPVPZ8BTR9" />
+      <Script id='google-analytics' strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XPVPZ8BTR9', {
+            page_path: window.location.pathname,
+          });`
+        }}
+      />
       <Header />
       <AnimatePresence mode='wait'>
         <Component {...pageProps} key={asPath} />
