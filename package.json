@@ -26,5 +26,9 @@
   "devDependencies": {
     "blurhash": "^2.0.4",
     "sass": "^1.57.0"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 5% in US"
+  ]
 }
