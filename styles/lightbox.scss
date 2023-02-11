@@ -1,0 +1,17 @@
+@import "./mixins.scss";
+
+.lightbox {
+  position: absolute;
+  display: flex;
+  background-color: rgba(192, 225, 142, 0.578);
+  top: 0; 
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  overflow: scroll;
+  ul {
+    display: flex;
+    overflow: scroll;
+  }
+}

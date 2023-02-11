@@ -5,6 +5,7 @@ import { TfiClose, TfiAngleLeft, TfiAngleRight } from 'react-icons/tfi';
 import { SlClose } from 'react-icons/sl';
 import { SyntheticBaseEvent } from '../../helpers/types';
 import ImageFrame from '../ImageFrame';
+import LightboxOverlay from './LightboxOverlay';
 
 export default function LightboxURL({
   imageList,
@@ -18,6 +19,7 @@ export default function LightboxURL({
   const imageArray = useRef<any>([]);
   const lightboxDiv = useRef<HTMLDivElement>(null);
   const imageUL = useRef<HTMLUListElement>(null);
+  const [modalOpenIndex, setModalOpenIndex] = useState<number | null>(null);
 
   useEffect(() => {
     imageArray.current = lightboxDiv.current!.querySelectorAll("[class^='image_container--item']");
@@ -81,22 +83,22 @@ export default function LightboxURL({
   // out, we set the display to 'none' after we see the opacity on the image-description 
   // stop, because that element is the last to fade out due to transition-delay.
   function activeZIndex(e: TransitionEvent) {
-    if (e.propertyName === 'opacity') {
-      if (lightboxDiv.current?.classList.contains('active')) {
-        (lightboxDiv.current as HTMLElement).style.zIndex = '10';
-        (lightboxDiv.current as HTMLElement).setAttribute('aria-hidden', 'false');
+    // if (e.propertyName === 'opacity') {
+    //   if (lightboxDiv.current?.classList.contains('active')) {
+    //     (lightboxDiv.current as HTMLElement).style.zIndex = '10';
+    //     (lightboxDiv.current as HTMLElement).setAttribute('aria-hidden', 'false');
 
-      }
-    }
+    //   }
+    // }
   }
 
   function inactiveZIndex(e: TransitionEvent) {
-    if (e.propertyName === 'opacity') {
-      if (!lightboxDiv.current?.classList.contains('active')) {
-        (lightboxDiv.current as HTMLElement).style.zIndex = '-1';
-        (lightboxDiv.current as HTMLElement).setAttribute('aria-hidden', 'true');
-      }
-    }
+    // if (e.propertyName === 'opacity') {
+    //   if (!lightboxDiv.current?.classList.contains('active')) {
+    //     (lightboxDiv.current as HTMLElement).style.zIndex = '-1';
+    //     (lightboxDiv.current as HTMLElement).setAttribute('aria-hidden', 'true');
+    //   }
+    // }
 
   }
 
@@ -140,17 +142,19 @@ export default function LightboxURL({
 
   // Initial click on a thumbnail
   function handleOnThumbClick(imageIndex: number) {
-    document.querySelector('html')?.classList.add('no-scroll');
-    setCurrentImage(imageIndex);
-    imageArray.current[imageIndex].scrollIntoView({ behavior: 'instant' });
-    imageArray.current[imageIndex].classList.add('in-frame');
-    imageArray.current[imageIndex].querySelector('.image-description')?.classList.add('in-frame');
-    lightboxDiv.current?.classList.add('active');
-    lightboxDiv.current?.focus();
+    // document.querySelector('html')?.classList.add('no-scroll');
+    // setCurrentImage(imageIndex);
+    setModalOpenIndex(imageIndex)
+    // imageArray.current[imageIndex].scrollIntoView({ behavior: 'instant' });
+    // imageArray.current[imageIndex].classList.add('in-frame');
+    // imageArray.current[imageIndex].querySelector('.image-description')?.classList.add('in-frame');
+    // lightboxDiv.current?.classList.add('active');
+    // lightboxDiv.current?.focus();
   }
 
   return (
     <>
+     {modalOpenIndex !== null && <LightboxOverlay imageList={imageList} openIndex={modalOpenIndex} />}
       <div
         className='main_image_container'
         ref={lightboxDiv}
@@ -190,7 +194,7 @@ export default function LightboxURL({
             <TfiAngleRight size={30} />
           </button>
         </span>
-        <ul
+        {/* <ul
           id='main-image-viewer'
           className='image_container'
           ref={imageUL}
@@ -211,7 +215,7 @@ export default function LightboxURL({
                   imgAlt={alt}
                   imgSize={{ h: dimensions.h, w: dimensions.w }}
                   blurDataUrl={blurDataURL}
-                  loading='lazy'
+                  loading='eager'
                 />
               </div>
               <div className={`image-description ${nextFontAccess}`} style={textDescriptionStyle}>
@@ -221,7 +225,7 @@ export default function LightboxURL({
           <button onClick={closeOverlay} className='mobile-close'>
             <SlClose size={35} />
           </button>
-        </ul>
+        </ul> */}
       </div>
       <div className="main_thumbnail_container">
         <ul key={'ul-thumb'} className="thumbnail_container">

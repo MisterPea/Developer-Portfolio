@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export"
+    "export": "next build && next export",
+    "local": "next build && next export && serve out"
   },
   "dependencies": {
     "@next/font": "^13.0.7",
