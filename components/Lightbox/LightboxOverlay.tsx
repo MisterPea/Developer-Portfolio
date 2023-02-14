@@ -3,6 +3,7 @@ import { useEffect, useState, useRef, SetStateAction, Dispatch } from 'react';
 import { ImageURLObject } from '../../helpers/types';
 import ImageFrame from '../ImageFrame';
 import { TfiClose, TfiAngleLeft, TfiAngleRight } from 'react-icons/tfi';
+import { SlClose } from 'react-icons/sl';
 import { roboto } from '../../helpers/fonts';
 import { SyntheticBaseEvent } from '../../helpers/types';
 
@@ -145,6 +146,9 @@ export default function LightboxOverlay({ imageList, openIndex, closeModalCallba
             <p className={`lightbox--image-description ${roboto.className}`}>{imageDesc}</p>
           </li>
         ))}
+        <button onClick={closeOverlay} className='mobile-close'>
+          <SlClose size={35} />
+        </button>
       </ul>
     </div>
   );

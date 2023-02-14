@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import * as React from 'react';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { roboto, RobotoSerif } from '../helpers/fonts';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
