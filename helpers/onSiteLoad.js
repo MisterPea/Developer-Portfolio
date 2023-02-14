@@ -7,11 +7,11 @@ export default function onSiteLoad() {
   • https://github.com/MisterPea
   • https://www.linkedin.com/in/perry-angelora/
   %c     ___   
-      /\\  \\
-     /::\\  \\ 
-    /:/\\:\\__\\
-   /:/ /:/  /
-  /:/_/:/  / 
+      / \\    \\
+     /:: \\    \\ 
+    /:/ \\:\\__\\
+   /:/  /:/    /
+  /:/_/:/   / 
   \\:\\/:/  /  
    \\::/__/   
     \\:\\  \\   

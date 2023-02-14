@@ -26,7 +26,6 @@ import { useEffect, useRef } from 'react';
 export default function ImageFrame({ imageURL_1x, imageURL_2x, imgAlt, imgSize, blurDataUrl, transitionDelay = '0', loading = 'lazy' }: ImageFrameProps) {
   const loadingImage = useRef<HTMLImageElement|null>(null);
 
-
   useEffect(() => {
     const options = {
       root: null,

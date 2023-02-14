@@ -6,6 +6,7 @@
 @import "./about.scss";
 @import "./footer.scss";
 @import "./lightbox-style.scss";
+@import "./lightbox.scss";
 
 :root {
   --background-solid: #ebe6e1;
@@ -41,7 +42,6 @@ body {
   overflow-x: hidden;
   position: relative;
   background-color: var(--background-solid);
-  z-index: -1;
   min-height: 100vh;
   line-height: 1.25;
   white-space: pre-line;
@@ -63,6 +63,10 @@ body {
   &.no-scroll {
     overflow: hidden;
   }
+}
+
+body {
+  z-index: -1;
 }
 
 a {
