@@ -92,18 +92,18 @@ export default function Header() {
               <li
                 onClick={handleWorkClick}
               >
-                <Link href='/works'>Work</Link>
-                <div className={`header--site_nav-bar ${route.asPath === '/works' ? 'active' : ''}`} />
+                <Link href='/works/'>Work</Link>
+                <div className={`header--site_nav-bar ${route.asPath === '/works/' ? 'active' : ''}`} />
               </li>
               <li>
-                <Link href='/about'>About</Link>
-                <div className={`header--site_nav-bar ${route.asPath === '/about' ? 'active' : ''}`} />
+                <Link href='/about/'>About</Link>
+                <div className={`header--site_nav-bar ${route.asPath === '/about/' ? 'active' : ''}`} />
               </li>
             </ul>
           </nav>
         </div>
       </div>
-      <div ref={titleBody} className={`header--title large ${RobotoSerif.className} ${route.asPath === '/works' ? '' : 'minimize'}`}>
+      <div ref={titleBody} className={`header--title large ${RobotoSerif.className} ${route.asPath === '/works/' ? '' : 'minimize'}`}>
         <h1 className='header--title-name' ref={titleText} >Hi, I&apos;m Perry.</h1>
         <h1 className='header--title-sub_title'>Design Technologist/Jack of Many Trades...</h1>
       </div>

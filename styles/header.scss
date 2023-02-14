@@ -54,6 +54,7 @@
 }
 
 .header--small_title {
+  transform: translate3d(0, 0, 0); // to prevent flickering of animation
   cursor: pointer;
   font-size: 1.25rem;
   margin-top: 7px;
