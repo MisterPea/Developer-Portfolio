@@ -91,3 +91,5 @@ describe('Header actions', () => {
     cy.get('.header--small_title').should('be.visible');
   });
 });
+
+export { };
