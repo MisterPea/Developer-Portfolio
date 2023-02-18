@@ -2,32 +2,36 @@ name: Deploy to S3
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   workflow_dispatch:
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with: 
-          node-version: '16'
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
       - run: npm ci
       - run: npm run export
 
+      - name: Run Cypress
+        uses: cypress-io/github-action@v5.0.9
+      - run: npm run e2e:headless
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
-        with: 
-            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws-region: us-east-2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
       - run: aws s3 sync ./out s3://misterpea.me
       - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.PORTFOLIO_DISTRIBUTION_ID }} --paths /index.html/*
-
-      
