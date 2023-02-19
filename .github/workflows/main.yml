@@ -23,17 +23,12 @@ jobs:
       - run: npm ci
       - run: npm run export
 
-      - name: Print network information
-        run: |
-          ifconfig
-          netstat -rn
-
       - name: Run Cypress
         uses: cypress-io/github-action@v5.0.9
         with:
           project: ./
           browser: chrome
-          e2e: npm run e2e:headless
+          runTests: npm run e2e:headless
           wait-on: "http://localhost:8080"
 
       - name: Configure AWS Credentials
