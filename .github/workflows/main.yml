@@ -43,7 +43,6 @@ jobs:
         with:
           wait-on: "http://localhost:${{ env.APP_PORT }}"
           browser: chrome
-          record: true
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
