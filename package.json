@@ -1,13 +1,13 @@
 {
   "name": "dev-portfolio-2023",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:export": "next build --export",
+    "build:export": "next build export",
     "cypress:open": "cypress open",
     "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
     "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\""
@@ -29,7 +29,8 @@
   "devDependencies": {
     "blurhash": "^2.0.4",
     "cypress": "^12.5.1",
-    "sass": "^1.57.0"
+    "sass": "^1.57.0",
+    "start-server-and-test": "^1.13.0"
   },
   "browserslist": [
     "last 2 versions",
