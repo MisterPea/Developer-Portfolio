@@ -7,12 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export",
-    "local": "next build && next export && serve out",
+    "build:export": "next build --export",
     "cypress:open": "cypress open",
-    "e2e": "start-server-and-test dev http://localhost:8080 \"cypress open --e2e\"",
-    "e2e:headless": "start-server-and-test dev http://localhost:8080 \"cypress run --e2e\""
-  },
+    "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\""
+  },  
   "dependencies": {
     "@next/font": "^13.0.7",
     "@types/node": "18.11.17",

@@ -25,9 +25,7 @@ jobs:
         run: npm ci
 
       - name: Build and Export Next.js app
-        run: |
-          npm run build
-          npm run export
+        run: npm run build:export
         env:
           APP_PORT: ${{ env.APP_PORT }}
 
@@ -43,7 +41,6 @@ jobs:
       - name: Run Cypress tests
         uses: cypress-io/github-action@v5
         with:
-          build: npm run build
           start: npm start
           wait-on: "http://localhost:${{ env.APP_PORT }}"
           browser: chrome
