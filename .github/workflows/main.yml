@@ -7,29 +7,47 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  e2e:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./
+    env:
+      APP_PORT: 3000
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.5.1
         with:
-          node-version: "16"
-      - run: npm ci
-      - run: npm run export
+          node-version: '16'
 
-      - name: Run Cypress
-        uses: cypress-io/github-action@v5.0.9
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and Export Next.js app
+        run: |
+          npm run build
+          npm run export
+        env:
+          APP_PORT: ${{ env.APP_PORT }}
+
+      - name: Start the application
+        run: npm start &
+        env:
+          APP_PORT: ${{ env.APP_PORT }}
+
+      - name: Wait for the application to start
+        run: |
+          timeout 30s bash -c 'until printf "" 2>>/dev/null >>/dev/tcp/localhost/${{ env.APP_PORT }}; do sleep 1; done'
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v2
         with:
-          project: ./
+          build: npm run build
+          start: npm start
+          wait-on: "http://localhost:${{ env.APP_PORT }}"
           browser: chrome
-          runTests: npm run e2e:headless
-          wait-on: "http://localhost:8080"
+          record: true
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
