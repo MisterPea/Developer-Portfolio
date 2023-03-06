@@ -519,7 +519,7 @@
         "icon": "github"
       }
     ],
-    "tools": "React.js, React Router, Material-UI, SCSS, Node/Express.js, Docker, Nginx, Firebase Auth, Firestore NoSQL, GCP Compute Engine, GCP Cloud Functions, GCP Cloud Scheduler, Twilio Sendgrid",
+    "tools": "React.js, React Router, Apollo/GraphQL, Material-UI, SCSS, Node/Express.js, Docker, Nginx, Firebase Auth, Firestore NoSQL, GCP Compute Engine, GCP Cloud Functions, GCP Cloud Scheduler, Twilio Sendgrid",
     "ideaFeatures": "News can be overwhelming and it can be easy to miss certain stories or topics that are important to us. This portal allows you to view synopses of articles and subscribe to topics that matter to you. Each morning, you'll receive an email with updates on the topics you've subscribed to, so you can stay informed on the issues that are important to you.",
     "featuresInclude": [
       "A daily email with the latest stories related to topics the user/subscriber picks.",
