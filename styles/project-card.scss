@@ -23,7 +23,7 @@
         color: var(--accent-blue);
       }
       p {
-        background-size: 100% 3px;
+        background-size: 100% 1px;
         color: var(--text-black);
       }
     }
@@ -54,7 +54,7 @@
     font-size: 1rem;
     color: var(--text-black-lite);
     padding: 0 20px;
-    background-color: var(--background-solid-trans);
+    // background-color: var(--background-solid-trans);
   }
   @include tablet {
     padding-right: 15px;
