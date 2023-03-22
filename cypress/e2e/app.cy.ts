@@ -63,7 +63,7 @@ describe('Each page should link back to works', () => {
 
 describe('About page', () => {
   it('should navigate to `About` page on click', () => {
-    cy.visit(website);
+    cy.visit(`${website}/works`);
     cy.get('.header--site_nav').contains('About').click();
     cy.url().should('include', '/about/');
   });
