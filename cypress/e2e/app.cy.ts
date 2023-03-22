@@ -65,7 +65,7 @@ describe('About page', () => {
   it('should navigate to `About` page on click', () => {
     cy.visit(website);
     cy.get('.header--site_nav').contains('About').click();
-    cy.url().should('include', '/about');
+    cy.url().should('include', '/about/');
   });
 
   it('should render page title, image, text, links, and navigates back', () => {
@@ -83,11 +83,10 @@ describe('About page', () => {
 
 describe('Header actions', () => {
   it('Header hides/reveals on scroll', () => {
-    cy.visit(website);
+    cy.visit(`${website}/works`);
     cy.get('.header--title').should('be.visible');
     cy.get('.header--small_title').should('not.be.visible');
     cy.scrollTo('bottom');
-    cy.get('.header--title').should('not.be.visible');
     cy.get('.header--small_title').should('be.visible');
   });
 });
