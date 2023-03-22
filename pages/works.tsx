@@ -1,5 +1,5 @@
 import ProjectCard from '../components/ProjectCard';
-import { roboto } from '../helpers/fonts';
+import { roboto, RobotoSerif } from '../helpers/fonts';
 import { motion } from 'framer-motion';
 import { galleryVariant } from '../helpers/galleryVariants';
 import ProjectData from '../public/workPagesContent.json';
@@ -51,7 +51,7 @@ export default function Works() {
       <Head>
         <title>Perry&apos;s Portfolio</title>
         <meta name="description" content="Perry's Portfolio - Front-End Developer / Design Technologist / Jack of many trades: creator of user interfaces, experiences, and web applications." key="description" />
-        <meta name="keywords" content="Front-End Development, React.js, Redux, TypeScript, Javascript (es6-es12), CSS, SCSS, HTML, UI Architecture, Test-Driven Development, React-Native, Node.js, Express.js, GIT, Adobe XD, Adobe Illustrator, Figma, Photoshop, JAMStack, AWS, GCP, Docker, Nginx, Firebase, Firestore, Twilio Sendgrid, Next.js, Material-UI, Framer-Motion." key="keywords" />
+        <meta name="keywords" content="Front-End Development, React.js, Redux, TypeScript, Javascript (es6-es12), CSS, SCSS, HTML, UI Architecture, Test-Driven Development, React-Native, Node.js, Express.js, GIT, Adobe XD, Adobe Illustrator, Figma, Photoshop, JAMStack, AWS, GCP, Docker, Nginx, NoSQL, MySQL, MongoDB, Firebase, Firestore, Twilio Sendgrid, Next.js, Material-UI, Framer-Motion" key="keywords" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0 viewport-fit=cover" />
         <meta name="theme-color" content="#303030" />
         <meta name="google-site-verification" content="verification_token" />
@@ -74,6 +74,10 @@ export default function Works() {
         variants={galleryVariant}
         className="works--container"
       >
+        <div className={`header--title large ${RobotoSerif.className}` }>
+          <h1 className='header--title-name' >Hi, I&apos;m Perry.</h1>
+          <h1 className='header--title-sub_title'>Design Technologist/Jack of Many Trades...</h1>
+        </div>
         <p className={`works--header ${roboto.className}`}>Here&apos;s a selection of some recent projects.</p>
         <div className="works--dotted_line" />
         <div className='works--cards-container'>

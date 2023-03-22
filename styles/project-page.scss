@@ -26,7 +26,8 @@
 
 .project--container {
   max-width: var(--mobile-max-width);
-  margin: 20px auto 60px;
+  padding-top: 90px;
+  margin: 0 auto 60px;
   @include tablet {
     margin-top: 0;
     max-width: var(--tablet-max-width);
@@ -222,7 +223,7 @@
     animation-duration: 400ms;
     animation-timing-function: cubic-bezier(0.32, 0.17, 0.47, 0.95);
     animation-fill-mode: backwards;
-    background-color: var(--background-solid-trans);
+    // background-color: var(--background-solid-trans);
     // animation-delay: 50ms;
   }
   section {
@@ -254,7 +255,7 @@
       animation-timing-function: cubic-bezier(0.32, 0.17, 0.47, 0.95);
       animation-fill-mode: backwards;
       animation-delay: 100ms;
-      background-color: var(--background-solid-trans);
+      // background-color: var(--background-solid-trans);
       width: fit-content;
     }
   }
