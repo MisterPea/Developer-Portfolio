@@ -37,8 +37,8 @@
     // opacity: 0;
     filter: blur(40px);
     transition: all 400ms ease-in-out;
-    // transition: opacity 300ms ease-in-out, filter 400ms ease-in-out;
-    // transition-delay: 230ms;
+    // Added for GPU acceleration
+    transform: translate3d(0, 0, 0);
     display: flex;
     margin: 0 20vw;
     flex-direction: column;
