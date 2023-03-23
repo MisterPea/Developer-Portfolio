@@ -24,7 +24,7 @@ interface ImageFrameProps {
 import { useEffect, useRef } from 'react';
 
 export default function ImageFrame({ imageURL_1x, imageURL_2x, imgAlt, imgSize, blurDataUrl, transitionDelay = '0', loading = 'lazy' }: ImageFrameProps) {
-  const loadingImage = useRef<HTMLImageElement|null>(null);
+  const loadingImage = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
     const options = {
@@ -43,13 +43,33 @@ export default function ImageFrame({ imageURL_1x, imageURL_2x, imgAlt, imgSize, 
       });
     }, options);
 
+    // We're attaching out observer to this element
     observer.observe(loadingImage.current!);
+
+    // We're going to attempt to remove the listeners if the user exits 
+    // before image loads or before transitionend
+    return () => {
+      loadingImage.current?.removeEventListener('load', cleanUpLoadImage);
+      if (loadingImage.current) {
+        (loadingImage.current!.closest('li') as HTMLLIElement)?.removeEventListener('transitionend', resetAnimationDelay);
+        loadingImage.current = null;
+      }
+    };
   }, []);
+
+  function resetAnimationDelay() {
+    // We're removing the transition-delay because it will affect :hover transitions...and delay them
+    (loadingImage.current!.closest('li') as HTMLLIElement)?.style.removeProperty('transition-delay');
+    (loadingImage.current!.closest('li') as HTMLLIElement)?.removeEventListener('transitionend', resetAnimationDelay);
+    // We no longer need this reference once all the loading machinations are complete
+    loadingImage.current = null;
+  }
 
   function cleanUpLoadImage() {
     (loadingImage.current!.closest('li') as HTMLLIElement).style.filter = 'blur(0px)';
+    // We're looking for the completion of the blur transition event
+    (loadingImage.current!.closest('li') as HTMLLIElement)?.addEventListener('transitionend', resetAnimationDelay);
     loadingImage.current?.removeEventListener('load', cleanUpLoadImage);
-    loadingImage.current = null;
   }
 
   function loadMainImage() {

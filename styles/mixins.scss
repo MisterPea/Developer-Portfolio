@@ -34,6 +34,8 @@ $desktop: 1024px;
 
 @mixin blur-background {
   backdrop-filter: blur(12px);
+  // Added for GPU acceleration
+  transform: translate3d(0, 0, 0);
 }
 
 @mixin underline-init {
