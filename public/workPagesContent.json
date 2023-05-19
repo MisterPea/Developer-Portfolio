@@ -14,11 +14,6 @@
     "subTitle": "A Pomodoro Technique-inspired task/timer app for iOS devices.",
     "links": [
       {
-        "title": "Currently Beta testing - Click to Request a Link.",
-        "url": "https://testflight.apple.com/join/8x1OiDg1",
-        "icon": "link"
-      },
-      {
         "title": "https://github.com/MisterPea/Unsequenced",
         "url": "https://github.com/MisterPea/Unsequenced",
         "icon": "github"

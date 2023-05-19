@@ -76,7 +76,7 @@ export default function Works() {
       >
         <div className={`header--title large ${RobotoSerif.className}` }>
           <h1 className='header--title-name' >Hi, I&apos;m Perry.</h1>
-          <h1 className='header--title-sub_title'>Design Technologist/Jack of Many Trades...</h1>
+          <h1 className='header--title-sub_title'>Developer/Jack of Many Trades...</h1>
         </div>
         <p className={`works--header ${roboto.className}`}>Here&apos;s a selection of some recent projects.</p>
         <div className="works--dotted_line" />

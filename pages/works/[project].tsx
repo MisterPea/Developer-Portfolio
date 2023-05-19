@@ -42,7 +42,7 @@ export default function Project({ projectData }: { projectData: ProjectDataProps
             {links.map((link, index) => (
               <li key={`${link.url}${index}`} className='project--links-item'>
                 {link.icon === 'link' ? <HiLink size={20} /> : <FaGithub size={20} />}
-                <a href={`${link.url}`} target='_blank' rel="noreferrer">{link.title}</a>
+                {<a href={`${link.url}`} target='_blank' rel="noreferrer">{link.title}</a>}
               </li>
             ))}
           </ul>
